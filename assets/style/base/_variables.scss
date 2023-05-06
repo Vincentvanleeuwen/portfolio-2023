@@ -1,0 +1,14 @@
+$breakpoints: (
+  'xxsmall': 0,
+  'xsmall': 375px,
+  'small': 480px,
+  'medium': 640px,
+  'large': 1024px,
+  'xlarge': 1200px,
+  'xxlarge': 1440px,
+  'xxxlarge': 1920px,
+  'huge': 2560px
+);
+
+$grid-gap: 1rem;
+$grid-columns: 12;
