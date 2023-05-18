@@ -1,35 +1,34 @@
-
 export const useProjectStore = definePiniaStore("project-store", {
   state: () => ({
     projects: [
       {
         id: 1,
-        title: "Project 1",
+        title: "Rinus",
         description: "This is a project",
       },
       {
-        id: 1,
-        title: "Project 1",
+        id: 2,
+        title: "Momkai",
         description: "This is a project",
       },
       {
-        id: 1,
-        title: "Project 1",
+        id: 3,
+        title: "NFP",
         description: "This is a project",
       },
       {
-        id: 1,
-        title: "Project 1",
+        id: 4,
+        title: "DEN",
         description: "This is a project",
       },
       {
-        id: 1,
-        title: "Project 1",
+        id: 5,
+        title: "PraPla",
         description: "This is a project",
       },
       {
-        id: 1,
-        title: "Project 1",
+        id: 6,
+        title: "Combinify",
         description: "This is a project",
       },
     ],

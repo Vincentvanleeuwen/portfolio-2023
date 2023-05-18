@@ -6,27 +6,26 @@
 </template>
 
 <script setup lang="ts">
-import { useProjectStore } from '~/stores/project'
-import { Project } from '~/types/project'
+import { useProjectStore } from "~/stores/project";
+import { Project } from "~/types/project";
 definePageMeta({
   layout: "default",
-})
-const projectStore = useProjectStore()
-const router = useRouter()
-console.log(router)
+});
+const projectStore = useProjectStore();
+const router = useRouter();
+console.log(router);
 // const id = router.params.id as number
-let projectTitle: string
-let projectDescription: string
+let projectTitle: string;
+let projectDescription: string;
+console.log(projectStore);
 
 onMounted(() => {
   // if (Object.keys(userStore.user).length === 0 && !localStorage?.getItem('token')) {
   //   router.push('/signup')
   // }
-  projectTitle = projectStore.projects[1].title
-  projectDescription = projectStore.projects[1].description
-})
-
-
+  projectTitle = projectStore.projects[1].title;
+  projectDescription = projectStore.projects[1].description;
+});
 </script>
 
 <style scoped>

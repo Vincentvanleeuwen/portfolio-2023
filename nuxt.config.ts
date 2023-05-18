@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import svgLoader from "vite-svg-loader";
 export default defineNuxtConfig({
   ssr: true,
   modules: [
@@ -8,9 +9,11 @@ export default defineNuxtConfig({
         autoImports: [["defineStore", "definePiniaStore"]],
       },
     ],
+    "@nuxtjs/google-fonts",
   ],
-  css: ['normalize.css/normalize.css'],
+  css: ["normalize.css/normalize.css"],
   vite: {
+    plugins: [svgLoader()],
     css: {
       preprocessorOptions: {
         scss: {
@@ -19,9 +22,21 @@ export default defineNuxtConfig({
       },
     },
   },
+  googleFonts: {
+    prefetch: true,
+    families: {
+      Roboto: true,
+      "Josefin+Sans": true,
+      Lato: [100, 300],
+      Raleway: {
+        wght: [300, 700, 900],
+        ital: [100],
+      },
+    },
+  },
   runtimeConfig: {
     public: {
       // strapiToken: process.env.NUXT_PUBLIC_STRAPI_SECRET_TOKEN,
-    }
-  }
-})
+    },
+  },
+});
