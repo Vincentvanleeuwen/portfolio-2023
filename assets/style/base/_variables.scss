@@ -15,7 +15,7 @@ $grid-columns: 12;
 
 $triangle-width: 258px;
 $triangle-height: 300px;
-$column-gap: 2rem;
+$column-gap: 18px;
 
 @include breakpoint(xlarge) {
   $triangle-width: 515px;

@@ -9,7 +9,7 @@
             :key="project.id"
             class="Triangle"
             @click="$router.push(`project/${project.id}`)"
-            :aria-label="`Open the ${project.id}} project`"
+            :aria-label="`Open the ${project.title} project`"
           >
             <div class="Triangle-inner">
               <!-- <p style="color: white">{{ project.title }}</p> -->
@@ -57,7 +57,7 @@ const projects = projectStore.projects;
   padding-left: 0;
   grid-template-columns: $triangle-width;
   column-gap: $column-gap;
-  height: 100vh;
+  // height: 100vh;
   margin: 0 auto;
   width: $triangle-width;
   @include breakpoint(medium) {
@@ -112,7 +112,7 @@ const projects = projectStore.projects;
     background-size: contain;
 
     @include breakpoint(medium) {
-      margin-top: -175px;
+      margin-top: -130px;
       grid-row: 2 / 3;
       grid-column: 1;
     }
@@ -143,7 +143,7 @@ const projects = projectStore.projects;
     background-size: contain;
 
     @include breakpoint(medium) {
-      margin-top: -175px;
+      margin-top: -130px;
       grid-row: 2 / 3;
       grid-column: 2;
     }
@@ -174,7 +174,7 @@ const projects = projectStore.projects;
     background-size: contain;
 
     @include breakpoint(medium) {
-      margin-top: -175px;
+      margin-top: -130px;
       grid-row: 3;
       grid-column: 2;
     }
@@ -205,7 +205,7 @@ const projects = projectStore.projects;
     background-size: contain;
 
     @include breakpoint(medium) {
-      margin: 0;
+      margin-top: 40px;
       grid-row: 3 / 4;
       grid-column: 2;
     }
@@ -236,7 +236,7 @@ const projects = projectStore.projects;
     background-size: contain;
 
     @include breakpoint(medium) {
-      margin: 0;
+      margin-top: 40px;
       grid-row: 3 / 4;
       grid-column: 1;
     }
