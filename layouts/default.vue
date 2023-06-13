@@ -1,18 +1,13 @@
 <template>
-  <div class="Container">
-    <Navigation />
-    <NuxtPage />
-  </div>
+  <Navigation />
+  <NuxtPage />
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss">
 .Container {
-  padding: 0 2rem;
-
-  @include breakpoint(medium) {
-    padding: 0 4rem;
-  }
+  width: 100%;
+  height: 100%;
 }
 </style>

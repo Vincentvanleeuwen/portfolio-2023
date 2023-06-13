@@ -1,5 +1,4 @@
 <template>
-  <PageHeader title="About" image="/images/about-header.jpg" />
   <section>
     <suspense>
       <template #default> </template>

@@ -1,5 +1,10 @@
 <template>
   <div class="PageHeader">
+    <img
+      v-if="props.image"
+      :src="props.image"
+      alt=" a young man sitting in front of a computer screen looking at his computer"
+    />
     <h1>{{ props.title }}</h1>
   </div>
 </template>
@@ -7,9 +12,11 @@
 <script setup lang="ts">
 interface Props {
   title: string;
+  image: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   title: "",
+  image: "",
 });
 </script>
 
@@ -20,6 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  padding-right: 5%;
 
   h1 {
     font-family: Raleway;
