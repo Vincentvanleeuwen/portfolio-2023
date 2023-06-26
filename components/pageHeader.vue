@@ -23,11 +23,12 @@ const props = withDefaults(defineProps<Props>(), {
 <style lang="scss">
 .PageHeader {
   width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-right: 5%;
+  height: 100%;
+  display: grid;
+  // justify-content: flex-end;
+  // align-items: flex-end;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 150px 1fr;
 
   h1 {
     font-family: Raleway;
@@ -35,6 +36,35 @@ const props = withDefaults(defineProps<Props>(), {
     letter-spacing: 2px;
     font-size: 48px;
     margin-bottom: 0;
+    grid-column: 1 /-1;
+    grid-row: 1 / 1;
+    text-align: center;
+  }
+
+  img {
+    grid-row: 2 / -1;
+    grid-column: 1 / -1;
+  }
+}
+@include breakpoint(medium) {
+  .PageHeader {
+    grid-template-rows: 1fr 1fr 1fr;
+    padding-right: 5%;
+    h1 {
+      font-family: Raleway;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 48px;
+      margin-bottom: 0;
+      grid-column: 4 /-1;
+      grid-row: 2 / 2;
+      text-align: right;
+    }
+
+    img {
+      grid-row: 1 / -1;
+      grid-column: 1 / 3;
+    }
   }
 }
 </style>
