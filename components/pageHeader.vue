@@ -63,6 +63,14 @@ const props = withDefaults(defineProps<Props>(), {
 
     img {
       grid-row: 1 / -1;
+      grid-column: 1 / 4;
+    }
+  }
+}
+@include breakpoint(xmedium) {
+  .PageHeader {
+    img {
+      grid-row: 1 / -1;
       grid-column: 1 / 3;
     }
   }

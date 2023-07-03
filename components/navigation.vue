@@ -1,5 +1,9 @@
 <template>
-  <div class="NavigationContainer" :class="{ HomeNavigationContainer: isHome }">
+  <div id="sentinel"></div>
+  <div
+    class="NavigationContainer"
+    :class="{ HomeNavigationContainer: isHome, sticky: isSticky }"
+  >
     <nav>
       <ul class="Navigation">
         <li><NuxtLink to="/">Intro</NuxtLink></li>
@@ -10,23 +14,77 @@
     </nav>
   </div>
 </template>
+<script setup lang="ts"></script>
+
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from "vue";
 const router = useRouter();
 const error = ref<string>("");
 const isHome = computed(() => router.currentRoute.value.path === "/");
+
+const isSticky = ref(false);
+
+onMounted(() => {
+  const navMenu = document.querySelector(".NavigationContainer");
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      if (entry.isIntersecting) {
+        isSticky.value = false;
+      } else {
+        isSticky.value = true;
+      }
+    });
+  }, observerOptions);
+
+  // Assume sentinel is available in DOM
+  const sentinel = document.querySelector("#sentinel");
+  if (sentinel) {
+    observer.observe(sentinel);
+  }
+
+  onBeforeUnmount(() => {
+    if (sentinel) {
+      observer.unobserve(sentinel);
+    }
+  });
+});
 </script>
+
 <style lang="scss">
+#sentinel {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+  top: 0;
+}
 .NavigationContainer {
+  z-index: 100;
   position: fixed;
-  bottom: 3rem;
   right: 5%;
+  top: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.NavigationContainer.sticky {
+  top: 5vh;
+  right: 5%;
+  transition: all 0.5s ease-in-out;
 }
 
 .HomeNavigationContainer {
   right: 8%;
+  top: 60vh;
 }
 .Navigation {
   display: flex;
@@ -46,7 +104,7 @@ const isHome = computed(() => router.currentRoute.value.path === "/");
 
   .HomeNavigationContainer & {
     letter-spacing: 2px;
-    font-size: 28px;
+    font-size: 16px;
   }
 }
 
@@ -64,11 +122,28 @@ const isHome = computed(() => router.currentRoute.value.path === "/");
   background-repeat: no-repeat;
   animation: slide-in 1s cubic-bezier(0.65, 0.1, 0.42, 1.56) forwards;
   .HomeNavigationContainer & {
-    width: 78px;
-    height: 18px;
+    width: 38px;
+    height: 9px;
   }
 }
 
+@include breakpoint(small) {
+  .HomeNavigationContainer {
+    top: 70vh;
+  }
+}
+
+@include breakpoint(xmedium) {
+  .HomeNavigationContainer .Navigation li a {
+    font-size: 22px;
+  }
+  .router-link-active::after {
+    .HomeNavigationContainer & {
+      width: 48px;
+      height: 10px;
+    }
+  }
+}
 @keyframes slide-in {
   0% {
     left: 300%;
