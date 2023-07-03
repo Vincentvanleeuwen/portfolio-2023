@@ -93,7 +93,7 @@ onBeforeUnmount(() => {
 }
 .ImageContainer img {
   width: 100%;
-  max-height: 90%;
+  height: 100%;
   object-fit: contain;
   margin-left: -15%;
 }
@@ -109,6 +109,7 @@ onBeforeUnmount(() => {
 }
 .Portrait {
   display: none;
+  padding-top: 15%;
 }
 .Portrait-mobile {
   display: block;
