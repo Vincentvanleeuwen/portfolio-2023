@@ -10,7 +10,7 @@
         design and ultimately, a love for web design.
       </p>
       <p>
-        Possessing a logical mindset and an aptitude for calculus, I ventured
+        Possessing a logical mindset and an aptitude for arithmetic, I ventured
         into JavaScript, creating my first game of 'rock, paper, scissors'. This
         sparked my journey of deeper exploration where I discovered new
         techniques, and I've been on a continuous learning path in the world of
@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: "default",
+  layout: "footer",
 });
 </script>
 

@@ -8,7 +8,7 @@
             v-for="project in projects"
             :key="project.id"
             class="Triangle"
-            @click="$router.push(`project/${project.id}`)"
+            @click="$router.push(`project/${project.title.toLowerCase()}`)"
             :aria-label="`Open the ${project.title} project`"
           >
             <div class="Triangle-inner">
@@ -60,6 +60,7 @@ const projects = projectStore.projects;
   // height: 100vh;
   margin: 0 auto;
   width: $triangle-width;
+  padding-bottom: 100px;
   @include breakpoint(medium) {
     width: calc(2 * $triangle-width + $column-gap);
     grid-template-columns: repeat(2, $triangle-width);
@@ -100,7 +101,7 @@ const projects = projectStore.projects;
       bottom: 0;
       left: 0;
       // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
       opacity: 0.6;
     }
   }
@@ -131,7 +132,7 @@ const projects = projectStore.projects;
       bottom: 0;
       left: 0;
       // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
       opacity: 0.6;
     }
   }
@@ -162,7 +163,7 @@ const projects = projectStore.projects;
       bottom: 0;
       left: 0;
       // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
       opacity: 0.6;
     }
   }
@@ -193,7 +194,8 @@ const projects = projectStore.projects;
       bottom: 0;
       left: 0;
       // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
+
       opacity: 0.6;
     }
   }
@@ -224,7 +226,7 @@ const projects = projectStore.projects;
       bottom: 0;
       left: 0;
       // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
       opacity: 0.6;
     }
   }
@@ -259,7 +261,7 @@ const projects = projectStore.projects;
       bottom: 0;
       left: 0;
       // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
       opacity: 0.6;
     }
   }

@@ -94,7 +94,7 @@ onBeforeUnmount(() => {
 .ImageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   margin-left: -15%;
 }
 
@@ -108,8 +108,8 @@ onBeforeUnmount(() => {
   object-position: bottom;
 }
 .Portrait {
-  display: none;
   padding-top: 15%;
+  display: none;
 }
 .Portrait-mobile {
   display: block;
@@ -174,13 +174,13 @@ onBeforeUnmount(() => {
   .ImageContainer img {
     width: 100%;
     max-height: 100%;
-    object-fit: contain;
   }
 }
 
 @include breakpoint(medium) {
   .ImageContainer {
     flex: 1.2;
+    padding-top: 30%;
     background-color: $c-primary-light;
     position: relative;
   }
@@ -201,6 +201,12 @@ onBeforeUnmount(() => {
   }
   .Portrait-mobile {
     display: none;
+  }
+  .ImageContainer {
+    padding-top: 0;
+  }
+  .ImageContainer img {
+    object-fit: contain;
   }
   .Portrait {
     display: block;

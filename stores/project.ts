@@ -35,7 +35,10 @@ export const useProjectStore = definePiniaStore("project-store", {
   }),
   getters: {
     getProjects: (state) => state.projects,
-    getProject: (state) => (id: number) => state.projects[id],
+    getProject: (state) => (title: string) =>
+      state.projects.find(
+        (project) => project.title.toLowerCase() === title.toLowerCase()
+      ),
   },
   actions: {},
 });

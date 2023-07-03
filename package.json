@@ -22,6 +22,7 @@
     "@volar-plugins/vetur": "^0.1.0",
     "dotenv": "^16.0.3",
     "normalize.css": "^8.0.1",
+    "pinia": "^2.1.4",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "typed.js": "^2.0.16",

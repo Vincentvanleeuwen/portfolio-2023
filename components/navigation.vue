@@ -59,7 +59,7 @@ onMounted(() => {
 <style lang="scss">
 #sentinel {
   position: absolute;
-  height: 100vh;
+  height: 75vh;
   width: 100vw;
   visibility: hidden;
   user-select: none;
