@@ -82,7 +82,7 @@ onBeforeUnmount(() => {
 .HomeContainer {
   display: flex;
   flex-direction: column-reverse;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
