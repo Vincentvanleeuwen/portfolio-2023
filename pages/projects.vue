@@ -13,7 +13,7 @@
           >
             <div class="Triangle-inner">
               <!-- <p style="color: white">{{ project.title }}</p> -->
-              <SvgRinus v-if="project.title === 'Rinus'" />
+              <SvgRinus v-if="project.title === 'KNVB Rinus'" />
               <SvgMomkai v-else-if="project.title === 'Momkai'" />
               <SvgNFPConnects v-else-if="project.title === 'NFP'" />
               <SvgDEN v-else-if="project.title === 'DEN'" />

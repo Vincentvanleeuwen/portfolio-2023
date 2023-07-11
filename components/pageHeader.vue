@@ -1,10 +1,12 @@
 <template>
   <div class="PageHeader">
     <img
+      class="PageHeader-image"
       v-if="props.image"
       :src="props.image"
       alt=" a young man sitting in front of a computer screen looking at his computer"
     />
+
     <h1>{{ props.title }}</h1>
   </div>
 </template>
@@ -39,11 +41,13 @@ const props = withDefaults(defineProps<Props>(), {
     grid-column: 1 /-1;
     grid-row: 1 / 1;
     text-align: center;
+    color: $c-primary;
   }
 
-  img {
+  .PageHeader-image {
     grid-row: 2 / -1;
     grid-column: 1 / -1;
+    background: $c-primary;
   }
 }
 @include breakpoint(medium) {
@@ -61,7 +65,7 @@ const props = withDefaults(defineProps<Props>(), {
       text-align: right;
     }
 
-    img {
+    .PageHeader-image {
       grid-row: 1 / -1;
       grid-column: 1 / 4;
     }
@@ -69,7 +73,7 @@ const props = withDefaults(defineProps<Props>(), {
 }
 @include breakpoint(xmedium) {
   .PageHeader {
-    img {
+    .PageHeader-image {
       grid-row: 1 / -1;
       grid-column: 1 / 3;
     }

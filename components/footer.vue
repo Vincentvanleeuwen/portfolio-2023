@@ -21,21 +21,25 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 5% 0 10%;
+  padding: 15% 3rem 20%;
   overflow: hidden;
+
+  h3 {
+    font-family: "Raleway";
+    font-weight: 900;
+    font-size: 3rem;
+    font-size: clamp(3rem, 2.7142857142857144rem + 1.4285714285714286vw, 4rem);
+    color: $c-white;
+  }
+  p {
+    color: $c-white;
+    font-family: "Roboto";
+    font-weight: 500;
+    max-width: 580px;
+    text-align: center;
+  }
 }
-.FooterContainer h3 {
-  font-family: "Raleway";
-  font-weight: 900;
-  font-size: 64px;
-  color: $c-white;
-}
-.FooterContainer p {
-  color: $c-white;
-  font-family: "Roboto";
-  font-weight: 500;
-  max-width: 580px;
-}
+
 .CallToAction {
   background-color: $c-cta;
   padding: 12px 16px;
@@ -44,5 +48,14 @@
   color: $c-black;
   text-decoration: none;
   font-size: 20px;
+}
+@include breakpoint(medium) {
+  .FooterContainer {
+    padding: 5% 0 10%;
+
+    p {
+      text-align: left;
+    }
+  }
 }
 </style>

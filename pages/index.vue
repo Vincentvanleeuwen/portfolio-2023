@@ -10,7 +10,7 @@
     </div>
     <div class="ContentContainer">
       <h1 class="HomeTitle">Hey! <span class="HomeTitle-icon">👋</span></h1>
-      <p class="Description">I'm Vincent van Leeuwen</p>
+      <p class="Description">I'm <strong>Vincent van Leeuwen</strong></p>
       <p class="DynamicDescription">
         A <span id="typed">Front End Developer</span>
       </p>
@@ -44,16 +44,16 @@ onMounted(async () => {
     const options = {
       strings: [
         "^1000 TypeScript Trendsetter",
-        "SASS Architect",
-        "User Interface Craftsman",
-        "Creative Web Designer",
-        "Responsive Design Advocate",
-        "Usability Evangelist",
-        "Vue.js Enthusiast",
-        "React.js Connoisseur",
-        "Progressive Web App Pioneer",
-        "Semantic Web Savant",
-        "Browser Compatibility Chief",
+        "^1000 SASS Architect",
+        "^1000 User Interface Craftsman",
+        "^1000 Creative Web Designer",
+        "^1000 Responsive Design Advocate",
+        "^1000 Usability Evangelist",
+        "^1000 Vue.js Enthusiast",
+        "^1000 React.js Connoisseur",
+        "^1000 Progressive Web App Pioneer",
+        "^1000 Semantic Web Savant",
+        "^1000 Browser Compatibility Chief",
       ],
       typeSpeed: 50,
       backSpeed: 50,
@@ -74,11 +74,6 @@ onBeforeUnmount(() => {
 });
 </script>
 <style lang="scss">
-/* Sample `apply` at-rules with Tailwind CSS
-.HomeContainer {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
 .HomeContainer {
   display: flex;
   flex-direction: column-reverse;
@@ -126,7 +121,7 @@ onBeforeUnmount(() => {
 
 .HomeTitle {
   font-family: "Raleway", sans-serif;
-  font-weight: 900;
+  font-weight: bold;
   font-size: 3rem;
   font-size: clamp(
     3rem,
@@ -148,20 +143,20 @@ onBeforeUnmount(() => {
 .Description,
 .DynamicDescription {
   font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 1rem;
-  font-size: clamp(1rem, 0.7142857142857143rem + 1.4285714285714286vw, 2rem);
+  font-weight: 300;
+  text-align: left;
+  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 0.9714285714285714rem + 1.1428571428571428vw, 2rem);
   line-height: 1.5rem;
   line-height: clamp(1.5rem, 1.0714285714285714rem + 2.142857142857143vw, 3rem);
   color: $c-black;
   margin: 0;
 }
-
+.Description strong {
+  font-weight: 900;
+}
 #typed {
-  padding-left: 0.5rem;
+  // padding-left: 0.5rem;
   text-decoration: underline;
 }
 .HomeTitle-icon {
@@ -178,9 +173,12 @@ onBeforeUnmount(() => {
 }
 
 @include breakpoint(medium) {
+  .HomeContainer {
+    flex-direction: column;
+  }
+
   .ImageContainer {
-    flex: 1.2;
-    padding-top: 30%;
+    flex: 1;
     background-color: $c-primary-light;
     position: relative;
   }
@@ -188,16 +186,34 @@ onBeforeUnmount(() => {
     max-height: 100%;
     width: 100%;
     margin-left: 0;
+
+    object-fit: contain;
   }
 
   .ContentContainer {
     flex: 1;
-    padding-top: 10%;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
 }
-@include breakpoint(xmedium) {
+@include breakpoint(large) {
+  .HomeContainer {
+    flex-direction: column-reverse;
+  }
   .ContentContainer {
     align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 0;
+    padding-top: 10%;
+    transform: none;
   }
   .Portrait-mobile {
     display: none;
@@ -240,6 +256,11 @@ onBeforeUnmount(() => {
   }
   24% {
     transform: rotate(0deg);
+  }
+}
+@media (prefers-reduced-motion) {
+  .HomeTitle-icon {
+    animation: none;
   }
 }
 </style>

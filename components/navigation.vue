@@ -19,6 +19,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
 const router = useRouter();
+const route = useRoute();
+
 const error = ref<string>("");
 const isHome = computed(() => router.currentRoute.value.path === "/");
 
@@ -48,6 +50,11 @@ onMounted(() => {
     observer.observe(sentinel);
   }
 
+  console.log("route", route.path);
+  if (route.path === "/") {
+    const arrow = document.querySelector(".router-link-active");
+    arrow.classList.add("router-link-active-home");
+  }
   onBeforeUnmount(() => {
     if (sentinel) {
       observer.unobserve(sentinel);
@@ -126,6 +133,9 @@ onMounted(() => {
     height: 9px;
   }
 }
+.router-link-active-home::after {
+  animation: slide-loop 2s cubic-bezier(0.65, 0.1, 0.42, 1.56) infinite;
+}
 
 @include breakpoint(small) {
   .HomeNavigationContainer {
@@ -150,6 +160,26 @@ onMounted(() => {
   }
   100% {
     left: 125%;
+  }
+}
+@keyframes slide-loop {
+  0% {
+    left: 125%;
+  }
+  50% {
+    left: 110%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+@media (prefers-reduced-motion) {
+  .router-link-active::after {
+    animation: none;
+    transition: none;
+  }
+  .router-link-active-home::after {
+    animation: none;
   }
 }
 </style>

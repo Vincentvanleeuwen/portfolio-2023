@@ -172,7 +172,7 @@ setInterval(() => {
   align-items: flex-start;
   flex-direction: column;
   max-width: 580px;
-  margin: 0 auto;
+  margin: 3rem auto !important;
 }
 .Skills-container {
   display: flex;

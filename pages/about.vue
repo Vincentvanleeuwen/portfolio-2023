@@ -53,7 +53,7 @@ definePageMeta({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Container {
   padding: 0 3rem 8rem;
 }
@@ -62,6 +62,7 @@ article {
   max-width: 580px;
   margin: 0 auto;
 }
+
 h2 {
   position: relative;
 }
