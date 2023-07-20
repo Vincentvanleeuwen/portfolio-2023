@@ -48,6 +48,21 @@ import SvgCombinify from "~/assets/images/Combinify.svg?component";
 
 const projectStore = useProjectStore();
 const projects = projectStore.projects;
+
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+      }
+    });
+  });
+
+  const subtitles = document.querySelectorAll(".Triangle");
+  subtitles.forEach((subtitle) => {
+    observer.observe(subtitle);
+  });
+});
 </script>
 
 <style lang="scss">
@@ -76,9 +91,11 @@ const projects = projectStore.projects;
   width: $triangle-width;
   height: $triangle-height;
   overflow: hidden;
+  opacity: 0;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
   cursor: pointer;
-
+  transition: all 0.5s cubic-bezier(1, -0.03, 0.83, 0.67);
+  transform: translateY(-100px);
   &:nth-child(even) {
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
   }
@@ -308,5 +325,10 @@ const projects = projectStore.projects;
   text-decoration: underline;
   text-underline-offset: 2px;
   cursor: pointer;
+}
+
+.animate-in {
+  opacity: 1; /* When the animate-in class is added, the subtitles will become visible */
+  transform: translateY(0px);
 }
 </style>

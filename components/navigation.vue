@@ -54,6 +54,10 @@ onMounted(() => {
     const arrow = document.querySelector(".router-link-active");
     arrow?.classList.add("router-link-active-home");
   }
+  if (route.path.includes("/project")) {
+    const arrow = document.querySelector(".router-link-active");
+    arrow?.classList.remove("router-link-active-home");
+  }
   // Unmount the sentinel observer when the component is unmounted.
   onBeforeUnmount(() => {
     if (sentinel) {
@@ -108,6 +112,10 @@ onMounted(() => {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   position: relative;
+
+  &:hover {
+    color: $c-primary;
+  }
 
   .HomeNavigationContainer & {
     letter-spacing: 2px;

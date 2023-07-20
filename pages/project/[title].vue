@@ -7,6 +7,9 @@
   <article class="Project">
     <header class="Project-header">
       <div class="Project-textBlock">
+        <NuxtLink to="/projects" class="Project-back"
+          ><SvgBack /> All projects</NuxtLink
+        >
         <h1 class="Project-title">{{ project?.title }}</h1>
         <a :href="project?.link" class="CallToAction"
           >View {{ project?.title }}</a
@@ -57,6 +60,7 @@
 </template>
 
 <script setup lang="ts">
+import SvgBack from "~/assets/images/arrow-back.svg?component";
 import { useProjectStore } from "~/stores/project";
 definePageMeta({
   layout: "footer",
@@ -69,6 +73,7 @@ let title = Array.isArray(route.params.title)
   : route.params.title;
 const project = projectStore.getProject(title.toLowerCase());
 const projects = projectStore.getProjects;
+
 let nextProjectTitle = "";
 
 if (project?.id !== undefined) {
@@ -80,7 +85,7 @@ if (project?.id !== undefined) {
     nextProjectTitle = "KNVB Rinus";
   }
 }
-console.log(nextProjectTitle);
+
 onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -182,12 +187,6 @@ onMounted(() => {
   align-items: flex-end;
   flex-direction: column;
 }
-.Project-subTitle {
-  font-family: "Raleway";
-  font-weight: 900;
-  font-size: 2rem;
-  margin: 0.5em 0;
-}
 .Project-title {
   font-family: "Raleway";
   font-weight: 900;
@@ -224,6 +223,9 @@ onMounted(() => {
   }
 }
 .Project-subTitle {
+  font-family: "Raleway";
+  font-weight: 900;
+  font-size: 2rem;
   margin: clamp(5rem, 3.5714285714285716rem + 7.142857142857142vw, 10rem) 0
     clamp(4rem, 3.428571428571429rem + 2.857142857142857vw, 6rem);
   opacity: 0; /* Initially, the subtitles will be invisible */
@@ -276,6 +278,8 @@ onMounted(() => {
   justify-content: center;
   column-gap: 2rem;
   margin-top: 2rem;
+  flex-wrap: wrap;
+  row-gap: 2rem;
   .CallToAction:last-child {
     background-color: $c-primary;
     color: $c-white;
@@ -289,5 +293,27 @@ onMounted(() => {
   color: $c-black;
   text-decoration: none;
   font-size: 20px;
+}
+.Project-back {
+  text-align: left;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: $c-black;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  padding-bottom: 1rem;
+
+  &:hover {
+    color: $c-primary;
+  }
+  svg {
+    width: 25px;
+    height: auto;
+    margin-right: 5px;
+  }
 }
 </style>
