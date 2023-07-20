@@ -1,46 +1,56 @@
 <template>
-  <div aria-hidden class="Triangle-background">
-    <div
-      class="Triangle Project-triangle"
-      :style="`background: ${project?.color}`"
-      v-for="i in 6"
-    ></div>
-  </div>
+  <div
+    aria-hidden
+    class="Project-background"
+    :style="{ background: project?.color, opacity: 0.1 }"
+  ></div>
   <article class="Project">
-    <h1 class="Project-title">{{ project?.title }}</h1>
-    <a :href="project?.link" class="CallToAction">View {{ project?.title }}</a>
-    <img
-      class="Project-headerImage"
-      src="/images/rinus-macbook.png"
-      alt="placeholder image"
-    />
-    <div class="Project-stack">
-      <h3>Tech stack</h3>
-      <div class="Project-stackItem">
-        <img
-          class="Project-stackImage"
-          src="/images/skills/graphql.svg"
-          alt="placeholder image"
-        />
-        <p>GraphQL</p>
+    <header class="Project-header">
+      <div class="Project-textBlock">
+        <h1 class="Project-title">{{ project?.title }}</h1>
+        <a :href="project?.link" class="CallToAction"
+          >View {{ project?.title }}</a
+        >
       </div>
-    </div>
-    <div class="Project-stakeholders"></div>
+      <img
+        class="Project-headerImage"
+        :src="project?.headerImage"
+        :alt="project?.headerImageAlt"
+      />
+    </header>
+    <ProjectSidebar
+      :techStack="project?.techStack"
+      :collaborators="project?.collaborators"
+    />
     <div class="Project-content">
-      <p>{{ project?.description }}</p>
-      <h2 class="Project-subTitle">My Role</h2>
-      <p>{{ project?.role }}</p>
+      <p class="Project-paragraph">{{ project?.description }}</p>
+      <img
+        class="Project-imageSpot"
+        :src="project?.imageSpotOne"
+        :alt="project?.imageSpotOneAlt"
+        v-if="project?.imageSpotOne?.length"
+      />
+      <h2 class="Project-subTitle">My role</h2>
+      <p class="Project-paragraph">{{ project?.role }}</p>
       <h2 class="Project-subTitle">Challenges</h2>
-      <p>{{ project?.challenges }}</p>
+      <p class="Project-paragraph">{{ project?.challenges }}</p>
+      <img
+        class="Project-imageSpot"
+        :src="project?.imageSpotTwo"
+        :alt="project?.imageSpotTwoAlt"
+        v-if="project?.imageSpotTwo?.length"
+      />
       <h2 class="Project-subTitle">Learnings</h2>
-      <p>{{ project?.learnings }}</p>
-      <h2 class="Project-subTitle">Conclusion</h2>
-      <p>{{ project?.conclusion }}</p>
+      <p class="Project-paragraph">{{ project?.learnings }}</p>
+      <!-- <h2 class="Project-subTitle">Conclusion</h2>
+      <p>{{ project?.conclusion }}</p> -->
       <div class="Project-buttonContainer">
         <a :href="project?.link" class="CallToAction"
           >View {{ project?.title }}</a
         >
-        <NuxtLink class="CallToAction" to="/contact">Next Project</NuxtLink>
+        <NuxtLink class="CallToAction" :to="`/project/${nextProjectTitle}`">{{
+          nextProjectTitle === "KNVB Rinus" ? "Back to start" : "Next Project"
+        }}</NuxtLink>
       </div>
     </div>
   </article>
@@ -58,6 +68,37 @@ let title = Array.isArray(route.params.title)
   ? route.params.title[0]
   : route.params.title;
 const project = projectStore.getProject(title.toLowerCase());
+const projects = projectStore.getProjects;
+let nextProjectTitle = "";
+
+if (project?.id !== undefined) {
+  const nextProject = projects.find((item) => item.id === project.id + 1);
+  console.log("wet", project);
+  if (nextProject) {
+    nextProjectTitle = nextProject.title;
+  } else {
+    nextProjectTitle = "KNVB Rinus";
+  }
+}
+console.log(nextProjectTitle);
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+      }
+    });
+  });
+
+  const subtitles = document.querySelectorAll(".Project-subTitle");
+  subtitles.forEach((subtitle) => {
+    observer.observe(subtitle);
+  });
+  const paragraphs = document.querySelectorAll(".Project-paragraph");
+  paragraphs.forEach((paragraph) => {
+    observer.observe(paragraph);
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -65,54 +106,81 @@ const project = projectStore.getProject(title.toLowerCase());
   padding: 2rem 3rem 4rem;
 }
 
-.Triangle-background {
+.Project-background {
   position: absolute;
-  top: -50vh;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 195vh;
+
+  height: calc(800px + 5%);
+
   z-index: -1;
   overflow: hidden;
-}
-.Triangle.Project-triangle::before {
-  background-image: none;
-}
-.Triangle.Project-triangle {
-  margin-top: 150px;
 
-  position: relative;
-  opacity: 0.1;
-  transform: scale(2.6);
-  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  @include breakpoint(small) {
+    height: calc(700px + 5%);
+  }
+  @include breakpoint(xmedium) {
+    height: calc(820px + 5%);
+  }
 
-  &:nth-child(even) {
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 400px solid white;
+    border-left: 600px solid transparent;
+    width: 0;
+    height: 0;
+
+    @include breakpoint(medium) {
+      border-top: 600px solid white;
+      border-left: 600px solid transparent;
+    }
   }
 }
 
-.Project-headerImage {
+.Project-header {
+  display: block;
+
+  @include breakpoint(medium) {
+    justify-content: flex-end;
+  }
+  @include breakpoint(xmedium) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .Project-headerImage {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    margin: 4rem 0 2rem;
+
+    @include breakpoint(medium) {
+      width: 500px;
+      height: 100%;
+      margin: 4rem auto 2rem;
+    }
+    @include breakpoint(xmedium) {
+      margin: 4rem 0;
+    }
+  }
+}
+.Project-imageSpot {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin: 6rem 0 2rem;
+  height: 400px;
+  margin: 2rem 0;
+  object-fit: contain;
 }
-.Project-stack {
-  width: 150px;
-  height: auto;
-  background-color: $c-white;
+.Project-textBlock {
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.Project-stackItem {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-.Project-stackImage {
-  width: 25px;
-  height: 25px;
 }
 .Project-subTitle {
   font-family: "Raleway";
@@ -123,20 +191,44 @@ const project = projectStore.getProject(title.toLowerCase());
 .Project-title {
   font-family: "Raleway";
   font-weight: 900;
-  font-size: 48px;
+  font-size: 3rem;
+  font-size: clamp(3rem, 2.142857142857143rem + 4.285714285714286vw, 6rem);
+  line-height: clamp(3rem, 2.1428571429rem + 4.2857142857vw, 6rem);
+
   text-align: left;
   margin-bottom: 1rem;
+
+  @include breakpoint(medium) {
+    text-align: right;
+  }
 }
-p {
+.Project-paragraph {
   white-space: pre-line;
+  opacity: 0;
+  transition: all 0.8s ease-out;
 }
 .Project-content {
   max-width: 580px;
   margin: 0 auto;
   padding-bottom: 150px;
+
+  p,
+  img {
+    padding-left: 0;
+    @include breakpoint(medium) {
+      padding-left: 15%;
+    }
+    @include breakpoint(xlarge) {
+      padding-left: 0;
+    }
+  }
 }
 .Project-subTitle {
-  margin: clamp(5rem, 3.5714285714285716rem + 7.142857142857142vw, 10rem) 0;
+  margin: clamp(5rem, 3.5714285714285716rem + 7.142857142857142vw, 10rem) 0
+    clamp(4rem, 3.428571428571429rem + 2.857142857142857vw, 6rem);
+  opacity: 0; /* Initially, the subtitles will be invisible */
+  transition: all 0.5s ease-out; /* Transition effect for the animation */
+  transform: translateY(100px);
   &::before {
     content: "";
     z-index: -1;
@@ -147,8 +239,14 @@ p {
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
     background-color: $c-primary-light;
     transform: translate(32px, -34px);
+    transition: all 0.2s ease-in-out;
+    opacity: inherit;
   }
   &:first-of-type {
+    @include breakpoint(xmedium) {
+      margin: 6rem 0
+        clamp(4rem, 3.428571428571429rem + 2.857142857142857vw, 6rem);
+    }
     &::before {
       transform: translate(-40px, -34px) rotate(180deg);
     }
@@ -169,13 +267,27 @@ p {
     }
   }
 }
+.animate-in {
+  opacity: 1; /* When the animate-in class is added, the subtitles will become visible */
+  transform: translateY(0px);
+}
 .Project-buttonContainer {
   display: flex;
   justify-content: center;
   column-gap: 2rem;
+  margin-top: 2rem;
   .CallToAction:last-child {
     background-color: $c-primary;
     color: $c-white;
   }
+}
+.CallToAction {
+  background-color: $c-cta;
+  padding: 12px 16px;
+  font-family: "Raleway";
+  font-weight: 900;
+  color: $c-black;
+  text-decoration: none;
+  font-size: 20px;
 }
 </style>

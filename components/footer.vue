@@ -12,7 +12,7 @@
 </template>
 <script setup lang="ts"></script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .FooterContainer {
   background-color: $c-black;
   width: 100%;
@@ -27,8 +27,8 @@
   h3 {
     font-family: "Raleway";
     font-weight: 900;
-    font-size: 3rem;
-    font-size: clamp(3rem, 2.7142857142857144rem + 1.4285714285714286vw, 4rem);
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 0.7857142857142858rem + 3.571428571428571vw, 4rem);
     color: $c-white;
   }
   p {
@@ -37,6 +37,14 @@
     font-weight: 500;
     max-width: 580px;
     text-align: center;
+    margin: 32px 0;
+    font-size: 12px;
+    @include breakpoint(small) {
+      font-size: 14px;
+    }
+    @include breakpoint(xmedium) {
+      font-size: 16px;
+    }
   }
 }
 

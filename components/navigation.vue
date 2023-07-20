@@ -14,7 +14,6 @@
     </nav>
   </div>
 </template>
-<script setup lang="ts"></script>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
@@ -44,7 +43,7 @@ onMounted(() => {
     });
   }, observerOptions);
 
-  // Assume sentinel is available in DOM
+  // Observe the sentinel element to check if the navigation should move up.
   const sentinel = document.querySelector("#sentinel");
   if (sentinel) {
     observer.observe(sentinel);
@@ -53,8 +52,9 @@ onMounted(() => {
   console.log("route", route.path);
   if (route.path === "/") {
     const arrow = document.querySelector(".router-link-active");
-    arrow.classList.add("router-link-active-home");
+    arrow?.classList.add("router-link-active-home");
   }
+  // Unmount the sentinel observer when the component is unmounted.
   onBeforeUnmount(() => {
     if (sentinel) {
       observer.unobserve(sentinel);

@@ -51,6 +51,24 @@
 definePageMeta({
   layout: "footer",
 });
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+      }
+    });
+  });
+
+  const subtitles = document.querySelectorAll(".Container article h2");
+  subtitles.forEach((subtitle) => {
+    observer.observe(subtitle);
+  });
+  const paragraphs = document.querySelectorAll(".Container article p");
+  paragraphs.forEach((paragraph) => {
+    observer.observe(paragraph);
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -61,12 +79,29 @@ article {
   position: relative;
   max-width: 580px;
   margin: 0 auto;
+  padding-top: 0;
 }
 
 h2 {
   position: relative;
+  opacity: 0;
+  transition: all 0.5s ease-out; /* Transition effect for the animation */
+  transform: translateY(100px);
 }
 
+p {
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+
+  &:nth-of-type(1),
+  &:nth-of-type(2) {
+    margin-bottom: 2rem;
+  }
+}
+.animate-in {
+  opacity: 1; /* When the animate-in class is added, the subtitles will become visible */
+  transform: translateY(0px);
+}
 h2::before {
   content: "";
   z-index: -1;
@@ -77,6 +112,8 @@ h2::before {
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
   background-color: $c-primary-light;
   transform: translate(32px, -38px);
+  transition: all 0.2s ease-in-out;
+  opacity: inherit;
 }
 h2.Rotated::before {
   transform: rotate(160deg) translate(-70px, 45px);
@@ -88,6 +125,9 @@ h2.Rotated::before {
     top: -100px;
     right: 100px;
     margin: 0;
+  }
+  article {
+    padding-top: 64px;
   }
 }
 </style>
