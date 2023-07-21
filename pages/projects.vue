@@ -67,15 +67,14 @@ onMounted(() => {
 
 <style lang="scss">
 .Triangle-container {
-  // @include grid(repeat($grid-columns, 1fr), $grid-gap);
   display: grid;
   padding-left: 0;
   grid-template-columns: $triangle-width;
   column-gap: $column-gap;
-  // height: 100vh;
   margin: 0 auto;
   width: $triangle-width;
   padding-bottom: 100px;
+
   @include breakpoint(medium) {
     width: calc(2 * $triangle-width + $column-gap);
     grid-template-columns: repeat(2, $triangle-width);
@@ -92,17 +91,17 @@ onMounted(() => {
   height: $triangle-height;
   overflow: hidden;
   opacity: 0;
+  transform: translateY(100px);
   clip-path: polygon(0 0, 100% 50%, 0 100%);
   cursor: pointer;
   transition: all 0.5s cubic-bezier(1, -0.03, 0.83, 0.67);
-  transform: translateY(-100px);
   &:nth-child(even) {
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
   }
   &:first-child {
     grid-row: 1 / 2;
     grid-column: 1;
-    background: url("~/assets/images/Rinus.png") center center no-repeat;
+    background: url("~/assets/images/rinus-polygon.png") center center no-repeat;
     background-size: contain;
     svg {
       transform: translate(-75%, -50%);
@@ -117,8 +116,7 @@ onMounted(() => {
       right: 0;
       bottom: 0;
       left: 0;
-      // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
+      background-image: linear-gradient(to bottom right, $c-black, $c-black);
       opacity: 0.6;
     }
   }
@@ -126,8 +124,9 @@ onMounted(() => {
     margin-top: -120px;
     grid-row: 2 / 3;
     grid-column: 1;
-    background: url("~/assets/images/Momkai.png") center center no-repeat;
+    background: url("~/assets/images/momkai-polygon.png") no-repeat;
     background-size: contain;
+    transition-delay: 0.2s;
 
     @include breakpoint(medium) {
       margin-top: -130px;
@@ -148,8 +147,7 @@ onMounted(() => {
       right: 0;
       bottom: 0;
       left: 0;
-      // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
+      background-image: linear-gradient(to bottom right, $c-black, $c-black);
       opacity: 0.6;
     }
   }
@@ -157,9 +155,9 @@ onMounted(() => {
     margin-top: 60px;
     grid-row: 2 / 3;
     grid-column: 1;
-    background: url("~/assets/images/NFPConnects.png") center center no-repeat;
+    background: url("~/assets/images/nfp-polygon.png") center center no-repeat;
     background-size: contain;
-
+    transition-delay: 0.4s;
     @include breakpoint(medium) {
       margin-top: -130px;
       grid-row: 2 / 3;
@@ -179,8 +177,7 @@ onMounted(() => {
       right: 0;
       bottom: 0;
       left: 0;
-      // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
+      background-image: linear-gradient(to bottom right, $c-black, $c-black);
       opacity: 0.6;
     }
   }
@@ -188,13 +185,15 @@ onMounted(() => {
     margin-top: -120px;
     grid-row: 3;
     grid-column: 1;
-    background: url("~/assets/images/DEN.png") center center no-repeat;
+    background: url("~/assets/images/den-polygon.png") center center no-repeat;
     background-size: contain;
+    transition-delay: 0.6s;
 
     @include breakpoint(medium) {
       margin-top: -130px;
       grid-row: 3;
       grid-column: 2;
+      transition-delay: 0;
     }
 
     svg {
@@ -210,9 +209,7 @@ onMounted(() => {
       right: 0;
       bottom: 0;
       left: 0;
-      // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
-
+      background-image: linear-gradient(to bottom right, $c-black, $c-black);
       opacity: 0.6;
     }
   }
@@ -220,7 +217,8 @@ onMounted(() => {
     margin-top: -120px;
     grid-row: 4;
     grid-column: 1;
-    background: url("~/assets/images/Prapla.png") center center no-repeat;
+    background: url("~/assets/images/prapla-polygon.png") center center
+      no-repeat;
     background-size: contain;
 
     @include breakpoint(medium) {
@@ -242,8 +240,7 @@ onMounted(() => {
       right: 0;
       bottom: 0;
       left: 0;
-      // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
+      background-image: linear-gradient(to bottom right, $c-black, $c-black);
       opacity: 0.6;
     }
   }
@@ -251,10 +248,12 @@ onMounted(() => {
     margin-top: 60px;
     grid-row: 4;
     grid-column: 1;
-    background: url("~/assets/images/Combinify.png") center center no-repeat;
+    background: url("~/assets/images/combinify-polygon.png") center center
+      no-repeat;
     background-size: contain;
 
     @include breakpoint(medium) {
+      transition-delay: 0.4s;
       margin-top: 40px;
       grid-row: 3 / 4;
       grid-column: 1;
@@ -277,8 +276,7 @@ onMounted(() => {
       right: 0;
       bottom: 0;
       left: 0;
-      // TODO: To change this color.
-      background-image: linear-gradient(to bottom right, $c-black, $c-primary);
+      background-image: linear-gradient(to bottom right, $c-black, $c-black);
       opacity: 0.6;
     }
   }
@@ -295,7 +293,6 @@ onMounted(() => {
   transition: all 0.5s cubic-bezier(1, -0.03, 0.83, 0.67);
   background: rgb(224, 229, 234);
   z-index: 2;
-  // clip-path: polygon(0 0, 100% 50%, 0 100%);
 
   svg {
     position: absolute;
@@ -328,7 +325,7 @@ onMounted(() => {
 }
 
 .animate-in {
-  opacity: 1; /* When the animate-in class is added, the subtitles will become visible */
+  opacity: 1; /* When the animate-in class is added, the triangles will become visible */
   transform: translateY(0px);
 }
 </style>
