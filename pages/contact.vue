@@ -1,6 +1,17 @@
 <template>
   <section>
-    <form name="contact" method="POST" data-netlify="true">
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-netlify-recaptcha="true"
+    >
+      <p class="hidden">
+        <label>
+          Don’t fill this out if you’re human: <input name="bot-field" />
+        </label>
+      </p>
       <p>
         <label>Your Name: <input type="text" name="name" /></label>
       </p>
@@ -10,6 +21,7 @@
       <p>
         <label>Message: <textarea name="message"></textarea></label>
       </p>
+      <div data-netlify-recaptcha="true"></div>
       <p>
         <button type="submit">Send</button>
       </p>
@@ -24,5 +36,7 @@ definePageMeta({
 </script>
 
 <style lang="scss">
-// hello
+.hidden {
+  display: none;
+}
 </style>
