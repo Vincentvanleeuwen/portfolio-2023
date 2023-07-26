@@ -40,7 +40,7 @@ h2,
 h3,
 h4,
 h5 {
-  &:focus {
+  &:focus-within {
     outline: none !important;
     border: 1px solid $c-primary;
   }
