@@ -26,21 +26,6 @@
   &:focus {
     opacity: 1;
     top: 0;
-  }
-}
-button,
-a,
-input,
-textarea,
-select,
-strong,
-span,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  &:focus-within {
     outline: none !important;
     border: 1px solid $c-primary;
   }
