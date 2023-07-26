@@ -56,6 +56,11 @@
   color: $c-black;
   text-decoration: none;
   font-size: 20px;
+  transition: 0.2s;
+  &:hover {
+    background-color: $c-primary;
+    color: $c-white;
+  }
 }
 @include breakpoint(medium) {
   .FooterContainer {

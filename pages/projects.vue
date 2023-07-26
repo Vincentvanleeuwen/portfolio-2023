@@ -12,7 +12,6 @@
             :aria-label="`Open the ${project.title} project`"
           >
             <div class="Triangle-inner">
-              <!-- <p style="color: white">{{ project.title }}</p> -->
               <SvgRinus v-if="project.title === 'KNVB Rinus'" />
               <SvgMomkai v-else-if="project.title === 'Momkai'" />
               <SvgNFPConnects v-else-if="project.title === 'NFP'" />
@@ -187,13 +186,12 @@ onMounted(() => {
     grid-column: 1;
     background: url("~/assets/images/den-polygon.png") center center no-repeat;
     background-size: contain;
-    transition-delay: 0.6s;
+    transition-delay: 0.5s;
 
     @include breakpoint(medium) {
       margin-top: -130px;
       grid-row: 3;
       grid-column: 2;
-      transition-delay: 0;
     }
 
     svg {
@@ -220,6 +218,7 @@ onMounted(() => {
     background: url("~/assets/images/prapla-polygon.png") center center
       no-repeat;
     background-size: contain;
+    transition-delay: 0.6s;
 
     @include breakpoint(medium) {
       margin-top: 40px;
@@ -251,9 +250,9 @@ onMounted(() => {
     background: url("~/assets/images/combinify-polygon.png") center center
       no-repeat;
     background-size: contain;
+    transition-delay: 0.8s;
 
     @include breakpoint(medium) {
-      transition-delay: 0.4s;
       margin-top: 40px;
       grid-row: 3 / 4;
       grid-column: 1;

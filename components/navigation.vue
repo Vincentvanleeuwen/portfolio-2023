@@ -29,10 +29,30 @@
           <span> Close</span>
         </div>
         <ul>
-          <li><NuxtLink to="/">Intro</NuxtLink></li>
-          <li><NuxtLink to="/about">About</NuxtLink></li>
-          <li><NuxtLink to="/projects">Projects</NuxtLink></li>
-          <li><NuxtLink to="/contact">Contact</NuxtLink></li>
+          <li>
+            <NuxtLink @click="isMobileMenuOpen = !isMobileMenuOpen" to="/"
+              >Intro</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink @click="isMobileMenuOpen = !isMobileMenuOpen" to="/about"
+              >About</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              @click="isMobileMenuOpen = !isMobileMenuOpen"
+              to="/projects"
+              >Projects</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              @click="isMobileMenuOpen = !isMobileMenuOpen"
+              to="/contact"
+              >Contact</NuxtLink
+            >
+          </li>
         </ul>
       </div>
     </nav>
@@ -76,14 +96,13 @@ onMounted(() => {
     observer.observe(sentinel);
   }
 
-  if (route.path === "/") {
-    const arrow = document.querySelector(".router-link-active");
-    arrow?.classList.add("router-link-active-home");
-  }
-  if (route.path.includes("/project")) {
-    const arrow = document.querySelector(".router-link-active");
-    arrow?.classList.remove("router-link-active-home");
-  }
+  // const arrow = document.querySelector(".router-link-active");
+  // if (route.path === "/") {
+  //   arrow?.classList.add("router-link-active-home");
+  // }
+  // if (route.path.includes("/project")) {
+  //   const arrow = document.querySelector(".router-link-active");
+  // }
   // Unmount the sentinel observer when the component is unmounted.
   onBeforeUnmount(() => {
     if (sentinel) {
@@ -128,8 +147,12 @@ onMounted(() => {
 }
 
 .HomeNavigationContainer {
-  right: 8%;
-  top: 60vh;
+  right: 0;
+  top: 0;
+  @include breakpoint(medium) {
+    right: 8%;
+    top: 60vh;
+  }
 }
 
 .Navigation-mobile {
@@ -151,20 +174,20 @@ onMounted(() => {
     transform: translateY(-50%);
     content: "";
     display: inline-block;
-    width: 43.33px;
-    height: 10px;
+    width: 32px;
+    height: 6px;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 78 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='12' y='7' width='66' height='4' fill='%230B0B0B'/%3E%3Cpath d='M-3.93402e-07 9L13.5 1.20577L13.5 16.7942L-3.93402e-07 9Z' fill='%230B0B0B'/%3E%3C/svg%3E%0A");
     background-size: contain;
     background-repeat: no-repeat;
     animation: slide-in 1s cubic-bezier(0.65, 0.1, 0.42, 1.56) forwards;
     .HomeNavigationContainer & {
-      width: 38px;
-      height: 9px;
+      width: 43.33px;
+      height: 10px;
     }
   }
-  .router-link-active-home::after {
-    animation: slide-loop 2s cubic-bezier(0.65, 0.1, 0.42, 1.56) infinite;
-  }
+  // .router-link-active-home::after {
+  //   animation: slide-loop 2s cubic-bezier(0.65, 0.1, 0.42, 1.56) infinite;
+  // }
 }
 .Navigation-menu {
   position: absolute;
@@ -251,12 +274,6 @@ onMounted(() => {
         color: $c-primary;
       }
     }
-  }
-}
-
-@include breakpoint(small) {
-  .HomeNavigationContainer {
-    top: 70vh;
   }
 }
 

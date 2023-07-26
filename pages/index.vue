@@ -50,7 +50,7 @@ onMounted(async () => {
     const options = {
       strings: [
         "^1000 TypeScript Trendsetter",
-        "^1000 SASS Architect",
+        "^1000 SSS Architect",
         "^1000 User Interface Craftsman",
         "^1000 Creative Web Designer",
         "^1000 Responsive Design Advocate",
@@ -96,7 +96,6 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin-left: -15%;
 }
 
 .Portrait,

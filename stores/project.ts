@@ -135,7 +135,7 @@ export const useProjectStore = definePiniaStore("project-store", {
           "One of the biggest challenges of creating NFPConnects was working with the CraftCMS plugin 'Comments' by verbb. We experienced some issues with it, but thankfully we mentioned this to the developer of the plugin, and they were able to fix the issues shortly after.",
         learnings:
           "During my time working on NFPConnects, I gained valuable experience in creating a login system with commenting functionality, which included implementing the ability to like and share articles. I also gained experience working with various technologies, including React, Next.js, and GraphQL.",
-        link: "https://momkai.com",
+        link: "https://nfpconnects.com",
         techStack: [
           {
             name: "TypeScript",
@@ -193,7 +193,7 @@ export const useProjectStore = definePiniaStore("project-store", {
           "One of the main challenges I faced while creating DEN was designing the dynamic pattern that needed to grow infinitely in width. It took me around 10 different techniques to find the right fit for the component. Additionally, working with GraphQL and TypeScript was a learning curve, but it helped me to improve my knowledge and skills in these areas.",
         learnings:
           "From this project, I learned how to create reusable and responsive components, how to work with GraphQL queries, and how to integrate TypeScript into a project. I also improved on how I can collaborate with designers to ensure the final product looks exactly like the designs.",
-        link: "https://momkai.com",
+        link: "https://den.nl",
         techStack: [
           {
             name: "TypeScript",
@@ -251,7 +251,7 @@ export const useProjectStore = definePiniaStore("project-store", {
           "One of the main challenges we faced in creating PraPla was figuring out how to store and display images for the visual exercises. We ultimately decided to use Cloudinary for image storage, which allowed us to keep the size of the app bundle small while still providing high-quality images. Another challenge we faced was integrating speech recognition into the app in a way that was both accurate and user-friendly.",
         learnings:
           "Through the process of creating PraPla, I gained a deeper understanding of front-end development using Nuxt.js, as well as experience working with NoSQL databases like MongoDB. I also learned about the importance of clear and concise code, as well as the value of good documentation and commenting.",
-        link: "https://momkai.com",
+        link: "https://prapla.vercel.app",
         techStack: [
           {
             name: "Vue",

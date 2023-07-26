@@ -79,9 +79,13 @@ form {
     letter-spacing: 2px;
 
     input {
-      max-width: 50%;
+      max-width: 100%;
       min-height: 35px;
       margin-top: 6px;
+
+      @include breakpoint(medium) {
+        max-width: 50%;
+      }
     }
     textarea {
       min-height: 150px;
@@ -90,6 +94,7 @@ form {
     input {
       border: none;
       box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+      padding: 10px;
     }
   }
 
@@ -102,6 +107,13 @@ form {
     color: $c-black;
     text-decoration: none;
     font-size: 20px;
+    margin-top: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      background-color: $c-primary;
+      color: $c-white;
+    }
   }
 
   p:last-child {

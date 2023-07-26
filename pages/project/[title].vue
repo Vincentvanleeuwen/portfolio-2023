@@ -32,6 +32,7 @@
         :src="project?.imageSpotOne"
         :alt="project?.imageSpotOneAlt"
         v-if="project?.imageSpotOne?.length"
+        loading="lazy"
       />
       <h2 class="Project-subTitle">My role</h2>
       <p class="Project-paragraph">{{ project?.role }}</p>
@@ -42,6 +43,7 @@
         :src="project?.imageSpotTwo"
         :alt="project?.imageSpotTwoAlt"
         v-if="project?.imageSpotTwo?.length"
+        loading="lazy"
       />
       <h2 class="Project-subTitle">Learnings</h2>
       <p class="Project-paragraph">{{ project?.learnings }}</p>
@@ -51,9 +53,13 @@
         <a :href="project?.link" class="CallToAction"
           >View {{ project?.title }}</a
         >
-        <NuxtLink class="CallToAction" :to="`/project/${nextProjectTitle}`">{{
-          nextProjectTitle === "KNVB Rinus" ? "Back to start" : "Next Project"
-        }}</NuxtLink>
+        <NuxtLink
+          class="CallToAction NextProject"
+          :to="`/project/${nextProjectTitle}`"
+          >{{
+            nextProjectTitle === "KNVB Rinus" ? "Back to start" : "Next Project"
+          }}</NuxtLink
+        >
       </div>
     </div>
   </article>
@@ -292,6 +298,17 @@ onMounted(() => {
   color: $c-black;
   text-decoration: none;
   font-size: 20px;
+  transition: 0.2s;
+  &:hover {
+    background-color: $c-primary;
+    color: $c-white;
+  }
+}
+.CallToAction.NextProject {
+  &:hover {
+    background-color: $c-black;
+    color: $c-white;
+  }
 }
 .Project-back {
   text-align: left;
