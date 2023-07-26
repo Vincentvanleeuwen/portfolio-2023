@@ -18,8 +18,7 @@ export const useProjectStore = definePiniaStore("project-store", {
           "Creating Rinus match mode was a challenging project that presented a few obstacles to overcome. One of the main challenges was making sure coaches are able to use it while coaching a match. It should require minimal attention, since coaches always have to be focused on the game. Another challenge was managing project scope and balancing feasible and out-of-scope features to create a functional MVP. ",
         learnings:
           "Through this project, I learned the importance of researching and understanding the target audience thoroughly. I gained valuable experience in leading a team and realized that I am capable of generating good ideas and incorporating feedback effectively. I also learned how to identify and manage project scope, balancing feasible and out-of-scope features to create a functional MVP.",
-        conclusion:
-          "Overall, my work prioritized ethical considerations by ensuring the data privacy of young players. I possess strong skills in attention to detail and research and have been successful in leading a team.",
+
         link: "https://rinus.knvb.nl",
         techStack: [
           {

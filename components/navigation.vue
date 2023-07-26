@@ -20,7 +20,10 @@
         <SvgMenu />
         <span> Menu</span>
       </div>
-      <div class="Navigation-overlay" v-show="isMobileMenuOpen">
+      <div
+        :class="`Navigation-overlay ${isMobile ? 'Navigation-animation' : ''}`"
+        v-show="isMobileMenuOpen"
+      >
         <div
           :class="`Navigation-menu ${isMobileMenuOpen ? 'reversed' : ''}`"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
@@ -63,6 +66,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import SvgMenu from "~/assets/images/menu.svg?component";
 import SvgClose from "~/assets/images/close.svg?component";
+import animateElement from "~/utils/animateElement";
 const router = useRouter();
 const isHome = computed(() => router.currentRoute.value.path === "/");
 
@@ -75,7 +79,8 @@ onMounted(() => {
     rootMargin: "0px",
     threshold: 0.5,
   };
-
+  const listItems = document.querySelectorAll(".Navigation-overlay li");
+  animateElement(listItems);
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
@@ -91,6 +96,9 @@ onMounted(() => {
   if (sentinel) {
     observer.observe(sentinel);
   }
+
+  const isMobile = window.matchMedia("(max-width: 640px)");
+  console.log(isMobile);
   // Unmount the sentinel observer when the component is unmounted.
   onBeforeUnmount(() => {
     if (sentinel) {
@@ -233,6 +241,7 @@ onMounted(() => {
     }
   }
 }
+
 .Navigation-overlay {
   // display: flex;
   position: absolute;
@@ -247,6 +256,22 @@ onMounted(() => {
   list-style: none;
   margin: 0;
   padding: 0;
+  &.Navigation-animation {
+    animation: slide-in 1s cubic-bezier(0.65, 0.1, 0.42, 1.56) forwards;
+    width: 0;
+    opacity: 0;
+  }
+  @keyframes slide-in {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 100dvw;
+      opacity: 1;
+    }
+  }
+
   ul {
     display: flex;
     justify-content: center;
@@ -254,13 +279,34 @@ onMounted(() => {
     flex-direction: column;
     height: 100dvh;
     padding-left: 0;
-    li a {
-      text-decoration: none;
-      color: $c-white;
-      font-family: "Raleway", sans-serif;
-      font-size: 48px;
-      &:hover {
-        color: $c-primary;
+    li {
+      opacity: 0;
+      transition: 0.5s 1s;
+      transform: translateY(100px);
+      &.animate-in {
+        opacity: 1; /* When the animate-in class is added, the subtitles will become visible */
+        transform: translateY(0px);
+      }
+      a {
+        text-decoration: none;
+        color: $c-white;
+        font-family: "Raleway", sans-serif;
+        font-size: 48px;
+        &:hover {
+          color: $c-primary;
+        }
+      }
+      &:nth-child(1) {
+        transition-delay: 0.2s;
+      }
+      &:nth-child(2) {
+        transition-delay: 0.4s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.6s;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.8s;
       }
     }
   }
