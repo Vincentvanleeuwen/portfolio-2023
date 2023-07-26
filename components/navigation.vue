@@ -191,7 +191,7 @@ onMounted(() => {
   border: none;
   cursor: pointer;
   svg {
-    margin-bottom: 4px;
+    margin: 0 auto 4px;
   }
   span {
     font-family: "Raleway", sans-serif;
