@@ -1,5 +1,5 @@
 <template>
-  <div class="HomeContainer">
+  <div id="maincontent" class="HomeContainer">
     <div class="ImageContainer">
       <nuxt-img
         src="/images/self-portrait.png"

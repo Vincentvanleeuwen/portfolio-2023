@@ -1,7 +1,7 @@
 <template>
   <PageHeader title="Contact" />
 
-  <section class="Container">
+  <section id="maincontent" class="Container">
     <p>
       Do you have an idea for a website, a fitting job position in a fun
       company, or do you just want to connect?

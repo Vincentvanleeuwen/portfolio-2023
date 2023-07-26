@@ -1,6 +1,6 @@
 <template>
   <PageHeader title="About" image="/images/about-header.jpg" />
-  <section class="Container">
+  <section id="maincontent" class="Container">
     <article>
       <h2>Who are you?!</h2>
       <p>

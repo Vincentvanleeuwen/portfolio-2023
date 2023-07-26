@@ -4,7 +4,7 @@
     class="NavigationContainer"
     :class="{ HomeNavigationContainer: isHome, sticky: isSticky }"
   >
-    <nav class="Navigation-desktop">
+    <nav role="navigation" class="Navigation-desktop" aria-label="Main menu">
       <ul class="Navigation">
         <li><NuxtLink to="/">Intro</NuxtLink></li>
         <li><NuxtLink to="/about">About</NuxtLink></li>
@@ -12,44 +12,45 @@
         <li><NuxtLink to="/contact">Contact</NuxtLink></li>
       </ul>
     </nav>
-    <nav class="Navigation-mobile">
-      <div
+    <nav
+      role="navigation"
+      class="Navigation-mobile"
+      aria-label="Main menu (Mobile)"
+    >
+      <button
         class="Navigation-menu"
         @click="isMobileMenuOpen = !isMobileMenuOpen"
       >
-        <SvgMenu />
+        <SvgMenu aria-hidden="true" />
         <span> Menu</span>
-      </div>
-      <div
-        :class="`Navigation-overlay ${isMobile ? 'Navigation-animation' : ''}`"
-        v-show="isMobileMenuOpen"
-      >
-        <div
+      </button>
+      <div :class="`Navigation-overlay`" v-show="isMobileMenuOpen">
+        <button
           :class="`Navigation-menu ${isMobileMenuOpen ? 'reversed' : ''}`"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
         >
           <SvgClose />
           <span> Close</span>
-        </div>
+        </button>
         <ul>
-          <li>
+          <li tabindex="0">
             <NuxtLink @click="isMobileMenuOpen = !isMobileMenuOpen" to="/"
               >Intro</NuxtLink
             >
           </li>
-          <li>
+          <li tabindex="0">
             <NuxtLink @click="isMobileMenuOpen = !isMobileMenuOpen" to="/about"
               >About</NuxtLink
             >
           </li>
-          <li>
+          <li tabindex="0">
             <NuxtLink
               @click="isMobileMenuOpen = !isMobileMenuOpen"
               to="/projects"
               >Projects</NuxtLink
             >
           </li>
-          <li>
+          <li tabindex="0">
             <NuxtLink
               @click="isMobileMenuOpen = !isMobileMenuOpen"
               to="/contact"
@@ -181,14 +182,13 @@ onMounted(() => {
       height: 10px;
     }
   }
-  // .router-link-active-home::after {
-  //   animation: slide-loop 2s cubic-bezier(0.65, 0.1, 0.42, 1.56) infinite;
-  // }
 }
 .Navigation-menu {
   position: absolute;
   margin-top: 48px;
   right: 5%;
+  background: transparent;
+  border: none;
   cursor: pointer;
   svg {
     margin-bottom: 4px;

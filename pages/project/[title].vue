@@ -4,7 +4,7 @@
     class="Project-background"
     :style="{ background: project?.color, opacity: 0.1 }"
   ></div>
-  <article class="Project">
+  <article id="maincontent" class="Project">
     <header class="Project-header">
       <div class="Project-textBlock">
         <NuxtLink to="/projects" class="Project-back"

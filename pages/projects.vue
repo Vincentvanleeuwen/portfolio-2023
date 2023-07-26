@@ -1,33 +1,26 @@
 <template>
   <PageHeader title="Projects" />
-  <section>
-    <suspense>
-      <template #default>
-        <section class="Triangle-container">
-          <div
-            v-for="project in projects"
-            :key="project.id"
-            class="Triangle"
-            @click="$router.push(`project/${project.title.toLowerCase()}`)"
-            :aria-label="`Open the ${project.title} project`"
-          >
-            <div class="Triangle-inner">
-              <SvgRinus v-if="project.title === 'KNVB Rinus'" />
-              <SvgMomkai v-else-if="project.title === 'Momkai'" />
-              <SvgNFPConnects v-else-if="project.title === 'NFP'" />
-              <SvgDEN v-else-if="project.title === 'DEN'" />
-              <SvgPraPla v-else-if="project.title === 'PraPla'" />
-              <SvgCombinify v-else-if="project.title === 'Combinify'" />
-            </div>
-            <span class="Triangle-button">
-              Read about {{ project.title }}
-            </span>
-          </div>
-        </section>
-      </template>
-
-      <template #fallback> Loading... </template>
-    </suspense>
+  <section id="maincontent">
+    <section class="Triangle-container">
+      <div
+        v-for="project in projects"
+        :key="project.id"
+        class="Triangle"
+        @click="$router.push(`project/${project.title.toLowerCase()}`)"
+        :aria-label="`Open the ${project.title} project`"
+        tabindex="0"
+      >
+        <div class="Triangle-inner">
+          <SvgRinus v-if="project.title === 'KNVB Rinus'" />
+          <SvgMomkai v-else-if="project.title === 'Momkai'" />
+          <SvgNFPConnects v-else-if="project.title === 'NFP'" />
+          <SvgDEN v-else-if="project.title === 'DEN'" />
+          <SvgPraPla v-else-if="project.title === 'PraPla'" />
+          <SvgCombinify v-else-if="project.title === 'Combinify'" />
+        </div>
+        <span class="Triangle-button"> Read about {{ project.title }} </span>
+      </div>
+    </section>
   </section>
 </template>
 

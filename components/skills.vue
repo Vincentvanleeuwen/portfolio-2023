@@ -19,7 +19,12 @@
           <div class="Tooltip" :class="{ isActive: item.hoverActive }">
             {{ item.name }}
           </div>
-          <a :href="item.link" target="_blank">
+          <a
+            tabindex="0"
+            :aria-label="item.name"
+            :href="item.link"
+            target="_blank"
+          >
             <img :src="item.icon" :alt="`${item.name} Logo`" />
           </a>
         </div>
