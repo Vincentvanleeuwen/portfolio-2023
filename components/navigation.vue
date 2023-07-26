@@ -253,6 +253,7 @@ onMounted(() => {
     align-items: center;
     flex-direction: column;
     height: 100dvh;
+    padding-left: 0;
     li a {
       text-decoration: none;
       color: $c-white;

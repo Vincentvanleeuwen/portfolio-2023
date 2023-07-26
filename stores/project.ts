@@ -123,18 +123,18 @@ export const useProjectStore = definePiniaStore("project-store", {
         title: "NFP",
         color: "#480E30",
         headerImage: "/images/projects/nfp/nfp-macbook.png",
-        headerImageAlt: "NFP Connects on a Macbook",
+        headerImageAlt: "NFP  on a Macbook",
         imageSpotOne: "/images/projects/nfp/nfp-mobile.png",
-        imageSpotOneAlt: "NFP Connects on a mobile phone",
+        imageSpotOneAlt: "NFP  on a mobile phone",
         imageSpotTwo: null,
         imageSpotTwoAlt: null,
         description:
-          "NFPConnects is a blog-like platform created for the global Food Systems Community. As a junior front-end developer at Momkai, I had the opportunity to work on the development of NFP, using technologies such as React, Next.js, CraftCMS, and GraphQL.",
-        role: "In my role at Momkai, I was responsible for creating responsive new components that the authors of NFPconnects can use in their articles. Additionally, I worked on the login logic, where I added a comment system with likes and report options to each article. I also created various layouts for the new signup/login pages, but also for article pages.",
+          "NFP is a blog-like platform created for the global Food Systems Community. As a junior front-end developer at Momkai, I had the opportunity to work on the development of NFP, using technologies such as React, Next.js, CraftCMS, and GraphQL.",
+        role: "In my role at Momkai, I was responsible for creating responsive new components that the authors of NFP can use in their articles. Additionally, I worked on the login logic, where I added a comment system with likes and report options to each article. I also created various layouts for the new signup/login pages, but also for article pages.",
         challenges:
-          "One of the biggest challenges of creating NFPConnects was working with the CraftCMS plugin 'Comments' by verbb. We experienced some issues with it, but thankfully we mentioned this to the developer of the plugin, and they were able to fix the issues shortly after.",
+          "One of the biggest challenges of creating NFP was working with the CraftCMS plugin 'Comments' by verbb. We experienced some issues with it, but thankfully we mentioned this to the developer of the plugin, and they were able to fix the issues shortly after.",
         learnings:
-          "During my time working on NFPConnects, I gained valuable experience in creating a login system with commenting functionality, which included implementing the ability to like and share articles. I also gained experience working with various technologies, including React, Next.js, and GraphQL.",
+          "During my time working on NFP, I gained valuable experience in creating a login system with commenting functionality, which included implementing the ability to like and share articles. I also gained experience working with various technologies, including React, Next.js, and GraphQL.",
         link: "https://nfpconnects.com",
         techStack: [
           {

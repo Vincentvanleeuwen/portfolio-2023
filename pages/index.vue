@@ -48,7 +48,7 @@ onMounted(async () => {
     const options = {
       strings: [
         "^1000 TypeScript Trendsetter",
-        "^1000 SSS Architect",
+        "^1000 SCSS Architect",
         "^1000 User Interface Craftsman",
         "^1000 Creative Web Designer",
         "^1000 Responsive Design Advocate",
