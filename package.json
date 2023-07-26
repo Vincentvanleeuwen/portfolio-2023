@@ -12,11 +12,12 @@
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/google-fonts": "^3.0.1",
     "node-sass": "^8.0.0",
-    "nuxt": "3.0.0",
+    "nuxt": "^3.6.5",
     "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^7.3.0",
+    "@nuxt/image": "^0.7.1",
+    "@nuxt/image-edge": "^1.0.0-rc.1-28164352.ad7c010",
     "@nuxtjs/markdownit": "^2.0.0",
     "@pinia/nuxt": "^0.4.3",
     "@volar-plugins/vetur": "^0.1.0",

@@ -4,7 +4,7 @@
       <h3>Tech stack</h3>
       <div class="ProjectSiderbar-items">
         <div class="ProjectSidebar-item" v-for="item in props?.techStack">
-          <a class="ProjectSidebar-link" :href="item?.link">
+          <a class="ProjectSidebar-link" :href="item?.link" target="_blank">
             <img
               class="ProjectSidebar-image"
               :src="item.image"
@@ -19,7 +19,7 @@
       <h3>Collaborators</h3>
       <div class="ProjectSiderbar-items">
         <div class="ProjectSidebar-item" v-for="item in props.collaborators">
-          <a class="ProjectSidebar-link" :href="item?.link">
+          <a class="ProjectSidebar-link" :href="item?.link" target="_blank">
             <img
               class="ProjectSidebar-image"
               :src="item.image"
@@ -107,6 +107,7 @@ aside.ProjectSidebar {
   align-items: flex-start;
   text-decoration: none;
   color: $c-black;
+  cursor: pointer;
   &:hover {
     color: $c-primary;
   }

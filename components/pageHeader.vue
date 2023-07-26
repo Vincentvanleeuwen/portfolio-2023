@@ -6,7 +6,6 @@
       :src="props.image"
       alt=" a young man sitting in front of a computer screen looking at his computer"
     />
-
     <h1>{{ props.title }}</h1>
   </div>
 </template>
@@ -14,7 +13,7 @@
 <script setup lang="ts">
 interface Props {
   title: string;
-  image: string;
+  image?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   title: "",

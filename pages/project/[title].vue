@@ -11,11 +11,11 @@
           ><SvgBack /> All projects</NuxtLink
         >
         <h1 class="Project-title">{{ project?.title }}</h1>
-        <a :href="project?.link" class="CallToAction"
+        <a :href="project?.link" target="_blank" class="CallToAction"
           >View {{ project?.title }}</a
         >
       </div>
-      <img
+      <nuxt-img
         class="Project-headerImage"
         :src="project?.headerImage"
         :alt="project?.headerImageAlt"
@@ -27,7 +27,7 @@
     />
     <div class="Project-content">
       <p class="Project-paragraph">{{ project?.description }}</p>
-      <img
+      <nuxt-img
         class="Project-imageSpot"
         :src="project?.imageSpotOne"
         :alt="project?.imageSpotOneAlt"
@@ -37,7 +37,7 @@
       <p class="Project-paragraph">{{ project?.role }}</p>
       <h2 class="Project-subTitle">Challenges</h2>
       <p class="Project-paragraph">{{ project?.challenges }}</p>
-      <img
+      <nuxt-img
         class="Project-imageSpot"
         :src="project?.imageSpotTwo"
         :alt="project?.imageSpotTwoAlt"
@@ -76,9 +76,8 @@ const projects = projectStore.getProjects;
 
 let nextProjectTitle = "";
 
-if (project?.id !== undefined) {
+if (project?.id) {
   const nextProject = projects.find((item) => item.id === project.id + 1);
-  console.log("wet", project);
   if (nextProject) {
     nextProjectTitle = nextProject.title;
   } else {

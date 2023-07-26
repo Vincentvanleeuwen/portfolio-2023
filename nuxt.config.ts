@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       },
     ],
     "@nuxtjs/google-fonts",
+    "@nuxt/image-edge",
   ],
   css: ["normalize.css/normalize.css"],
   vite: {
@@ -22,6 +23,9 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  routeRules: {
+    "/contact": { prerender: true },
   },
   googleFonts: {
     prefetch: true,

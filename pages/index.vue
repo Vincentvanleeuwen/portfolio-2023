@@ -1,11 +1,17 @@
 <template>
   <div class="HomeContainer">
     <div class="ImageContainer">
-      <img src="/images/self-portrait.png" alt="Portrait" class="Portrait" />
-      <img
+      <nuxt-img
+        src="/images/self-portrait.png"
+        alt="Portrait"
+        class="Portrait"
+        sizes="xl:820px lg:500px"
+      />
+      <nuxt-img
         src="/images/self-portrait-mobile.png"
         alt="Portrait"
         class="Portrait-mobile"
+        sizes="md:400px sm:300px xsm:300px"
       />
     </div>
     <div class="ContentContainer">
@@ -121,7 +127,7 @@ onBeforeUnmount(() => {
 
 .HomeTitle {
   font-family: "Raleway", sans-serif;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 3rem;
   font-size: clamp(
     3rem,
@@ -129,7 +135,7 @@ onBeforeUnmount(() => {
     4.625rem
   );
   line-height: 96px;
-  letter-spacing: 0.125rem;
+  letter-spacing: 2px;
   letter-spacing: clamp(
     0.125rem,
     -0.01785714285714285rem + 0.7142857142857143vw,
