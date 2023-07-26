@@ -86,6 +86,10 @@ aside.ProjectSidebar {
   border-radius: 10px;
   row-gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  @include breakpoint(small) {
+    width: 175px;
+    min-width: 175px;
+  }
 
   @include breakpoint(xmedium) {
     justify-content: flex-start;

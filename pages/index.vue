@@ -42,8 +42,6 @@ let Typed: TypedConstructor | null = null;
 let typed = ref<TypedInstance | null>(null);
 
 onMounted(async () => {
-  console.log(process.client);
-
   if (process.client) {
     const module = await import("typed.js");
     Typed = module.default;

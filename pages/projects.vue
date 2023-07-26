@@ -36,6 +36,7 @@ definePageMeta({
   layout: "default",
   title: "Projects",
 });
+import animateElement from "~/utils/animateElement";
 
 import { useProjectStore } from "~/stores/project";
 import SvgRinus from "~/assets/images/rinus.svg?component";
@@ -49,18 +50,8 @@ const projectStore = useProjectStore();
 const projects = projectStore.projects;
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-in");
-      }
-    });
-  });
-
-  const subtitles = document.querySelectorAll(".Triangle");
-  subtitles.forEach((subtitle) => {
-    observer.observe(subtitle);
-  });
+  const triangles = document.querySelectorAll(".Triangle");
+  animateElement(triangles);
 });
 </script>
 

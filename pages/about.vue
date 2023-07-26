@@ -48,26 +48,16 @@
 </template>
 
 <script setup lang="ts">
+import animateElement from "~/utils/animateElement";
+
 definePageMeta({
   layout: "footer",
 });
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-in");
-      }
-    });
-  });
-
   const subtitles = document.querySelectorAll(".Container article h2");
-  subtitles.forEach((subtitle) => {
-    observer.observe(subtitle);
-  });
   const paragraphs = document.querySelectorAll(".Container article p");
-  paragraphs.forEach((paragraph) => {
-    observer.observe(paragraph);
-  });
+  animateElement(subtitles);
+  animateElement(paragraphs);
 });
 </script>
 

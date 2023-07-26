@@ -64,16 +64,12 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import SvgMenu from "~/assets/images/menu.svg?component";
 import SvgClose from "~/assets/images/close.svg?component";
 const router = useRouter();
-const route = useRoute();
-
-const error = ref<string>("");
 const isHome = computed(() => router.currentRoute.value.path === "/");
 
 const isSticky = ref(false);
 const isMobileMenuOpen = ref(false);
 
 onMounted(() => {
-  const navMenu = document.querySelector(".NavigationContainer");
   const observerOptions = {
     root: null,
     rootMargin: "0px",
@@ -95,14 +91,6 @@ onMounted(() => {
   if (sentinel) {
     observer.observe(sentinel);
   }
-
-  // const arrow = document.querySelector(".router-link-active");
-  // if (route.path === "/") {
-  //   arrow?.classList.add("router-link-active-home");
-  // }
-  // if (route.path.includes("/project")) {
-  //   const arrow = document.querySelector(".router-link-active");
-  // }
   // Unmount the sentinel observer when the component is unmounted.
   onBeforeUnmount(() => {
     if (sentinel) {

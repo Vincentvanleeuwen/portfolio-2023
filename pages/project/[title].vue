@@ -68,6 +68,7 @@
 <script setup lang="ts">
 import SvgBack from "~/assets/images/arrow-back.svg?component";
 import { useProjectStore } from "~/stores/project";
+import animateElement from "~/utils/animateElement";
 definePageMeta({
   layout: "footer",
 });
@@ -92,28 +93,20 @@ if (project?.id) {
 }
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-in");
-      }
-    });
-  });
-
   const subtitles = document.querySelectorAll(".Project-subTitle");
-  subtitles.forEach((subtitle) => {
-    observer.observe(subtitle);
-  });
   const paragraphs = document.querySelectorAll(".Project-paragraph");
-  paragraphs.forEach((paragraph) => {
-    observer.observe(paragraph);
-  });
+  animateElement(subtitles);
+  animateElement(paragraphs);
 });
 </script>
 
 <style lang="scss" scoped>
 .Project {
   padding: 2rem 3rem 4rem;
+
+  @include breakpoint(medium) {
+    padding: 2rem 3rem 4rem;
+  }
 }
 
 .Project-background {
@@ -213,8 +206,15 @@ onMounted(() => {
 }
 .Project-content {
   max-width: 580px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 150px;
+
+  @include breakpoint(medium) {
+    margin: 0 auto;
+  }
 
   p,
   img {
