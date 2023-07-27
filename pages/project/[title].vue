@@ -45,8 +45,8 @@
         v-if="project?.imageSpotTwo?.length"
         loading="lazy"
       />
-      <h2 class="Project-subTitle">Learnings</h2>
-      <p class="Project-paragraph">{{ project?.learnings }}</p>
+      <h2 class="Project-subTitle">Lessons</h2>
+      <p class="Project-paragraph">{{ project?.lessons }}</p>
       <!-- <h2 class="Project-subTitle">Conclusion</h2>
       <p>{{ project?.conclusion }}</p> -->
       <div class="Project-buttonContainer">

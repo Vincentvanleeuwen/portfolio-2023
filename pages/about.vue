@@ -4,17 +4,15 @@
     <article>
       <h2>Who are you?!</h2>
       <p>
-        From a young age, I found my passion in the digital world, beginning
-        with creating YouTube backgrounds for amateur e-sport teams. This
-        initial interest naturally evolved into a fascination with graphic
-        design and ultimately, a love for web design.
+        I found my passion in the digital world, beginning with creating YouTube
+        backgrounds for amateur e-sport teams. This initial interest naturally
+        evolved into a fascination with graphic design and ultimately, a love
+        for web design.
       </p>
       <p>
-        Possessing a logical mindset and an aptitude for arithmetic, I ventured
-        into JavaScript, creating my first game of 'rock, paper, scissors'. This
-        sparked my journey of deeper exploration where I discovered new
-        techniques, and I've been on a continuous learning path in the world of
-        coding ever since.
+        Possessing a logical mindset, I ventured into JavaScript, creating my
+        first game of 'rock, paper, scissors'.This sparked my journey to
+        discover new techniques and continue to learn about the world of coding.
       </p>
       <p>
         Over the years, I've had the privilege of working with distinguished
@@ -23,9 +21,9 @@
         KNVB (Rinus, Dugout, Online United), Qmusic, DEN, and NFP.
       </p>
       <p>
-        My tenure at various agencies taught me the value of adaptability.
-        Present me with a new framework, and I'll thoroughly explore it,
-        ensuring its proper and effective application in my projects.
+        My time at various agencies taught me the value of adaptability. Present
+        me with a new framework, and I'll thoroughly explore it, ensuring its
+        proper and effective application in any projects.
       </p>
       <p>
         My mission is to create websites that are not only performance-optimized
@@ -36,11 +34,10 @@
       </p>
       <h2 class="Rotated">Technical Skills</h2>
       <p>
-        I have refined my abilities at various agencies, becoming proficient in
-        a broad range of frameworks and libraries. I have experience working
-        with various languages and frameworks, see below to see specifics. My
-        adaptability and expertise enable me to cater to your specific
-        requirements and create customized solutions for your project.
+        I have experience working with various languages and frameworks, see
+        below to see specifics. My adaptability and expertise enable me to cater
+        to your specific requirements and create customized solutions for your
+        project.
       </p>
     </article>
     <Skills />
