@@ -32,6 +32,7 @@
         :src="project?.imageSpotOne"
         :alt="project?.imageSpotOneAlt"
         v-if="project?.imageSpotOne?.length"
+        sizes="(max-width: 320px) 100vw, (max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
         loading="lazy"
       />
       <h2 class="Project-subTitle">My role</h2>
