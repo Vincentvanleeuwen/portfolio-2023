@@ -80,8 +80,7 @@ p {
   opacity: 0;
   transition: all 0.8s ease-in-out;
 
-  &:nth-of-type(1),
-  &:nth-of-type(2) {
+  &:not(:last-of-type) {
     margin-bottom: 2rem;
   }
 }
