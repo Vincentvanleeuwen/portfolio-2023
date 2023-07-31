@@ -19,6 +19,7 @@
         class="Project-headerImage"
         :src="project?.headerImage"
         :alt="project?.headerImageAlt"
+        sizes="md:500px sm:300px xsm:250px"
       />
     </header>
     <ProjectSidebar
@@ -32,7 +33,7 @@
         :src="project?.imageSpotOne"
         :alt="project?.imageSpotOneAlt"
         v-if="project?.imageSpotOne?.length"
-        sizes="(max-width: 320px) 100vw, (max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+        sizes="md:580px sm:300px xsm:250px"
         loading="lazy"
       />
       <h2 class="Project-subTitle">My role</h2>
@@ -45,6 +46,7 @@
         :alt="project?.imageSpotTwoAlt"
         v-if="project?.imageSpotTwo?.length"
         loading="lazy"
+        sizes="md:580px sm:300px xsm:250px"
       />
       <h2 class="Project-subTitle">Lessons</h2>
       <p class="Project-paragraph">{{ project?.lessons }}</p>
