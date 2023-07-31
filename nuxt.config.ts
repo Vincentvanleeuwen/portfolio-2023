@@ -3,6 +3,9 @@ import svgLoader from "vite-svg-loader";
 
 export default defineNuxtConfig({
   ssr: true,
+  image: {
+    provider: "ipx",
+  },
   modules: [
     [
       "@pinia/nuxt",
