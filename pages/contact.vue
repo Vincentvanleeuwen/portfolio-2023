@@ -296,6 +296,9 @@ form {
   border: 1px solid $c-success;
 }
 .ProjectSidebar-social {
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(100px);
   display: flex;
   column-gap: 1rem;
   align-items: center;
