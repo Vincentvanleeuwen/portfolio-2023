@@ -124,11 +124,15 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, formData);
 onMounted(() => {
   const paragraphs = document.querySelectorAll(".Container > p");
+  const anchors = document.querySelectorAll(".Container > a");
   const labels = document.querySelectorAll("label");
   const button = document.querySelectorAll("button");
+
   animateElement(paragraphs);
   animateElement(labels);
   animateElement(button);
+  animateElement(anchors);
+
   const handleSubmit = (event: Event) => {
     event.preventDefault();
 
@@ -137,7 +141,6 @@ onMounted(() => {
 
     const params = new URLSearchParams();
 
-    // We're making an "any" type assertion here to get around TypeScript's complaint
     for (const pair of (formData as any).entries()) {
       if (typeof pair[1] === "string") {
         params.append(pair[0], pair[1]);
