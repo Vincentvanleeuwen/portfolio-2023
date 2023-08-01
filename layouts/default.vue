@@ -4,7 +4,19 @@
   <NuxtPage />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: "Vincent van Leeuwen Portfolio",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Portfolio website from the front end developer Vincent van Leeuwen",
+    },
+  ],
+  link: [{ rel: "icon", type: "image/ico", href: "/favicon.ico" }],
+});
+</script>
 
 <style lang="scss">
 .Container {
