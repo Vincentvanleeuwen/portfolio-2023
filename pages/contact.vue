@@ -22,7 +22,7 @@
       Follow on GitHub →
     </a>
     <a
-      href="https://github.com/Vincentvanleeuwen"
+      href="https://www.linkedin.com/in/vincent-van-leeuwen-0b7338137/"
       class="ProjectSidebar-social"
     >
       <img
