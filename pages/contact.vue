@@ -7,9 +7,31 @@
       company, or do you just want to connect?
     </p>
     <p>
-      Be sure to send me a message via the following form, and I’ll respond as
-      soon as possible!
+      Be sure to send me a message via the following form or send me a message
+      on LinkedIn or Github, and I’ll respond as soon as possible!
     </p>
+    <a
+      href="https://github.com/Vincentvanleeuwen"
+      class="ProjectSidebar-social"
+    >
+      <img
+        class="ProjectSidebar-image"
+        src="/images/collaborators/github.svg"
+        alt="Github logo"
+      />
+      Follow on GitHub →
+    </a>
+    <a
+      href="https://github.com/Vincentvanleeuwen"
+      class="ProjectSidebar-social"
+    >
+      <img
+        class="ProjectSidebar-image"
+        src="/images/collaborators/linkedin.svg"
+        alt="Github logo"
+      />
+      Connect on LinkedIn →
+    </a>
     <form
       name="contact"
       method="POST"
@@ -144,6 +166,8 @@ onMounted(() => {
 }
 .Container {
   padding: 0 3rem 8rem;
+  max-width: 680px;
+  margin: 0 auto 1rem;
 }
 .Success {
   display: flex;
@@ -182,8 +206,7 @@ onMounted(() => {
   }
 }
 p {
-  max-width: 680px;
-  margin: 0 auto 1rem;
+  width: 680px;
   padding-right: 0;
   transition: 0.5s;
   opacity: 0;
@@ -194,7 +217,7 @@ p {
   }
 
   &:last-of-type {
-    margin: 0 auto 4rem;
+    margin: 0 auto 1rem;
   }
 }
 form {
@@ -268,5 +291,22 @@ form {
 }
 .Valid {
   border: 1px solid $c-success;
+}
+.ProjectSidebar-social {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  text-decoration: none;
+  color: $c-black;
+  font-weight: bold;
+  margin: 2rem auto 0.5rem;
+
+  &:last-of-type {
+    margin: 0 auto 2rem;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>
