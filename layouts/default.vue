@@ -14,7 +14,7 @@ useHead({
         "Portfolio website from the front end developer Vincent van Leeuwen",
     },
   ],
-  link: [{ rel: "icon", type: "image/ico", href: "/favicon.ico" }],
+  link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
 });
 </script>
 
