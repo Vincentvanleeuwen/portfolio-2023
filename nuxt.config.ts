@@ -42,9 +42,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  runtimeConfig: {
-    public: {
-      // strapiToken: process.env.NUXT_PUBLIC_STRAPI_SECRET_TOKEN,
-    },
-  },
 });
