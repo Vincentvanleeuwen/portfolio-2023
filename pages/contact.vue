@@ -306,6 +306,10 @@ form {
   color: $c-black;
   font-weight: bold;
   margin: 2rem auto 0.5rem;
+  &.animate-in {
+    opacity: 1; /* When the animate-in class is added, the subtitles will become visible */
+    transform: translateY(0px);
+  }
 
   &:last-of-type {
     margin: 0 auto 2rem;
