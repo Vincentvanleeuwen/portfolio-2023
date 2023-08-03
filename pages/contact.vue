@@ -212,7 +212,7 @@ onMounted(() => {
   }
 }
 p {
-  width: 320px;
+  width: 300px;
   padding-right: 0;
   transition: 0.5s;
   opacity: 0;
