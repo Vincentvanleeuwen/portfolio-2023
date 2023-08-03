@@ -4,6 +4,12 @@
     <article>
       <h2>Who are you?!</h2>
       <p>
+        I'm Vincent van Leeuwen, a Front-end Developer with a passion for
+        merging performance and accessibility in web design. My drive is to
+        create digital platforms that are not only finely tuned for speed, but
+        inclusively crafted to be user-friendly for all.
+      </p>
+      <p>
         I found my passion in the digital world, beginning with creating YouTube
         backgrounds for amateur e-sport teams. This initial interest naturally
         evolved into a fascination with graphic design and ultimately, a love
