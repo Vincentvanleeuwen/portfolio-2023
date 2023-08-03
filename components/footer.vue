@@ -53,10 +53,10 @@
 }
 @include breakpoint(medium) {
   .FooterContainer {
-    padding: 5% 0 10%;
+    padding: 4% 0 5%;
 
     p {
-      text-align: left;
+      text-align: center;
     }
   }
 }

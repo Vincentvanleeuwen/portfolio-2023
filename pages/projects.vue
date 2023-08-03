@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: "default",
+  layout: "footer",
   title: "Projects",
 });
 import animateElement from "~/utils/animateElement";
