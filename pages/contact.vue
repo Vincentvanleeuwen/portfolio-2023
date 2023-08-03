@@ -212,13 +212,14 @@ onMounted(() => {
   }
 }
 p {
-  width: 680px;
+  width: 320px;
   padding-right: 0;
   transition: 0.5s;
   opacity: 0;
   transform: translateY(100px);
 
   @include breakpoint(medium) {
+    width: 680px;
     padding-right: 10rem;
   }
 

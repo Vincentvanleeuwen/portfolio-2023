@@ -81,7 +81,7 @@ setInterval(() => {
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   width: 100%;
 
   @include breakpoint(medium) {
@@ -105,12 +105,12 @@ setInterval(() => {
 .Skills-list {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 3rem;
-  column-gap: 4rem;
+  column-gap: 3rem;
 
   @include breakpoint(medium) {
     row-gap: 1rem;
