@@ -11,9 +11,12 @@
           ><SvgBack /> All projects</NuxtLink
         >
         <h1 class="Project-title">{{ project?.title }}</h1>
-        <a :href="project?.link" target="_blank" class="CallToAction"
-          >View {{ project?.title }}</a
-        >
+        <Button
+          :element="'a'"
+          :title="`View ${project?.title}`"
+          :href="project?.link"
+          target="_blank"
+        ></Button>
       </div>
       <nuxt-img
         class="Project-headerImage"
@@ -53,16 +56,20 @@
       <!-- <h2 class="Project-subTitle">Conclusion</h2>
       <p>{{ project?.conclusion }}</p> -->
       <div class="Project-buttonContainer">
-        <a :href="project?.link" class="CallToAction"
-          >View {{ project?.title }}</a
-        >
-        <NuxtLink
-          class="CallToAction NextProject"
+        <Button
+          :element="'a'"
+          :title="`View ${project?.title}`"
+          :href="project?.link"
+          target="_blank"
+        ></Button>
+        <Button
+          :element="'NuxtLink'"
+          :color="'Purple'"
+          :title="
+            nextProjectTitle === 'KNVB Rinus' ? 'Back to start' : 'Next Project'
+          "
           :to="`/project/${nextProjectTitle}`"
-          >{{
-            nextProjectTitle === "KNVB Rinus" ? "Back to start" : "Next Project"
-          }}</NuxtLink
-        >
+        ></Button>
       </div>
     </div>
   </article>
@@ -82,8 +89,10 @@ let title = Array.isArray(route.params.title)
   ? route.params.title[0]
   : route.params.title;
 const project = projectStore.getProject(title.toLowerCase());
+if (!project?.id) {
+  throw createError({ statusCode: 404, statusMessage: "Project not found" });
+}
 const projects = projectStore.getProjects;
-
 let nextProjectTitle = "";
 
 if (project?.id) {
@@ -288,28 +297,8 @@ onMounted(() => {
   margin-top: 2rem;
   flex-wrap: wrap;
   row-gap: 2rem;
-  .CallToAction:last-child {
+  .Button:last-child {
     background-color: $c-primary;
-    color: $c-white;
-  }
-}
-.CallToAction {
-  background-color: $c-cta;
-  padding: 12px 16px;
-  font-family: "Raleway";
-  font-weight: 900;
-  color: $c-black;
-  text-decoration: none;
-  font-size: 20px;
-  transition: 0.2s;
-  &:hover {
-    background-color: $c-primary;
-    color: $c-white;
-  }
-}
-.CallToAction.NextProject {
-  &:hover {
-    background-color: $c-black;
     color: $c-white;
   }
 }

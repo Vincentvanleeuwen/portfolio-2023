@@ -7,7 +7,11 @@
       thrilled to discuss how my expertise can benefit your business. Please
       feel free to reach out, and let's create something extraordinary together.
     </p>
-    <NuxtLink class="CallToAction" to="/contact">Get in touch</NuxtLink>
+    <Button
+      :element="'NuxtLink'"
+      :title="'Get in touch'"
+      :to="`/contact`"
+    ></Button>
   </div>
 </template>
 <script setup lang="ts"></script>
@@ -45,21 +49,6 @@
     @include breakpoint(xmedium) {
       font-size: 16px;
     }
-  }
-}
-
-.CallToAction {
-  background-color: $c-cta;
-  padding: 12px 16px;
-  font-family: "Raleway";
-  font-weight: 900;
-  color: $c-black;
-  text-decoration: none;
-  font-size: 20px;
-  transition: 0.2s;
-  &:hover {
-    background-color: $c-primary;
-    color: $c-white;
   }
 }
 @include breakpoint(medium) {

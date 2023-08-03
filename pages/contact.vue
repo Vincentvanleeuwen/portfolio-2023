@@ -80,8 +80,11 @@
       </label>
 
       <div data-netlify-recaptcha="true"></div>
-
-      <button type="submit">Send e-mail</button>
+      <Button
+        :element="'button'"
+        :type="'submit'"
+        :title="'Send e-mail'"
+      ></Button>
     </form>
     <div v-if="successMessageRef" class="Success">
       <p class="SuccessMessage">Your message has been sent</p>
@@ -256,27 +259,6 @@ form {
       border: none;
       box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
       padding: 10px;
-    }
-  }
-
-  button {
-    border: none;
-    background-color: $c-cta;
-    padding: 12px 16px;
-    font-family: "Raleway";
-    font-weight: 900;
-    color: $c-black;
-    text-decoration: none;
-    font-size: 20px;
-    margin-top: 6px;
-    cursor: pointer;
-    transition: 0.5s;
-    opacity: 0;
-    transform: translateY(100px);
-
-    &:hover {
-      background-color: $c-primary;
-      color: $c-white;
     }
   }
 
