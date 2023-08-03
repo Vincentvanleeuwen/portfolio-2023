@@ -302,4 +302,8 @@ form {
     height: 50px;
   }
 }
+
+.Button {
+  margin-top: 32px;
+}
 </style>
