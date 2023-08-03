@@ -190,6 +190,7 @@ onMounted(() => {
   background: transparent;
   border: none;
   cursor: pointer;
+  color: $c-black;
   svg {
     margin: 0 auto 4px;
   }
