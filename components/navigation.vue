@@ -248,7 +248,9 @@ onMounted(() => {
   top: 0;
   left: 0;
   background-color: $c-black;
+  height: 100vh;
   height: 100dvh;
+  width: 100vw;
   width: 100dvw;
   justify-content: center;
   align-items: flex-end;
