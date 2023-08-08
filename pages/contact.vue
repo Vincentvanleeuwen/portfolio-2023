@@ -36,15 +36,10 @@
       name="contact"
       method="POST"
       data-netlify="true"
-      netlify-honeypot="bot-field"
       data-netlify-recaptcha="true"
       v-if="!successMessageRef"
     >
       <input type="hidden" name="form-name" value="contact" />
-
-      <label class="hidden">
-        Don’t fill this out if you’re human: <input name="bot-field" />
-      </label>
       <label
         >Name
         <input

@@ -65,7 +65,6 @@ onMounted(async () => {
       smartBackspace: true,
     };
     if (Typed !== null) {
-      console.log("timeout");
       typed.value = new Typed("#typed", options);
     }
   }
