@@ -36,7 +36,6 @@
       name="contact"
       method="POST"
       data-netlify="true"
-      data-netlify-recaptcha="true"
       v-if="!successMessageRef"
     >
       <input type="hidden" name="form-name" value="contact" />
@@ -73,8 +72,6 @@
           v-model="formData.message"
         ></textarea>
       </label>
-
-      <div data-netlify-recaptcha="true"></div>
       <Button
         :element="'button'"
         :type="'submit'"
