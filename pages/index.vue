@@ -2,13 +2,13 @@
   <div id="maincontent" class="HomeContainer">
     <div class="ImageContainer">
       <nuxt-img
-        src="/images/self-portrait.png"
+        src="/images/self-portrait.webp"
         alt="Portrait"
         class="Portrait"
         sizes="xl:820px lg:500px"
       />
       <nuxt-img
-        src="/images/self-portrait-mobile.png"
+        src="/images/self-portrait-mobile.webp"
         alt="Portrait"
         class="Portrait-mobile"
         sizes="md:400px sm:300px xsm:300px"
