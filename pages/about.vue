@@ -1,5 +1,5 @@
 <template>
-  <PageHeader title="About" image="/images/about-header.webm" />
+  <PageHeader title="About" image="/images/about-header.webp" />
   <section id="maincontent" class="Container">
     <article>
       <h2>Who are you?!</h2>

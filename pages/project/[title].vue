@@ -7,9 +7,9 @@
   <article id="maincontent" class="Project">
     <header class="Project-header">
       <div class="Project-textBlock">
-        <NuxtLink to="/projects" class="Project-back"
-          ><SvgBack /> All projects</NuxtLink
-        >
+        <NuxtLink to="/projects" class="Project-back">
+          <SvgBack /> All projects
+        </NuxtLink>
         <h1 class="Project-title">{{ project?.title }}</h1>
         <Button
           :element="'a'"
