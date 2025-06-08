@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   ssr: true,
   image: {
     provider: "netlify",
+    netlify: {
+      baseURL: "https://vincreates.netlify.app",
+    },
   },
   modules: [
     [
