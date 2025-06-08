@@ -1,4 +1,4 @@
-export const useProjectStore = definePiniaStore("project-store", {
+export const useProjectStore = defineStore("project-store", {
   state: () => ({
     projects: [
       {
@@ -106,6 +106,12 @@ export const useProjectStore = definePiniaStore("project-store", {
             image: "/images/skills/craft.svg",
             alt: "The Craft Logo",
             link: "https://craftcms.com/",
+          },
+          {
+            name: "Webflow",
+            image: "/images/skills/webflow.svg",
+            alt: "The Webflow Logo",
+            link: "https://webflow.com/",
           },
         ],
         collaborators: [

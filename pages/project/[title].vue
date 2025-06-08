@@ -91,7 +91,7 @@ const route = useRoute();
 let title = Array.isArray(route.params.title)
   ? route.params.title[0]
   : route.params.title;
-const project = projectStore.getProject(title?.toLowerCase());
+const project = projectStore.getProject(title.toLowerCase());
 if (!project?.id) {
   throw createError({ statusCode: 404, statusMessage: "Project not found" });
 }

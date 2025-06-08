@@ -73,6 +73,12 @@
       "link": "https://socket.io/",
       "icon": "/images/skills/socketio.svg",
       "hoverActive": false
+    },
+    {
+      "name": "Webflow",
+      "link": "https://webflow.com/",
+      "icon": "/images/skills/webflow.svg",
+      "hoverActive": false
     }
   ],
   "backend": [

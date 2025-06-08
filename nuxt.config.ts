@@ -27,6 +27,9 @@ export default defineNuxtConfig({
         },
       },
     },
+    ssr: {
+      noExternal: ["three", "three/examples/jsm/controls/OrbitControls"],
+    },
   },
   routeRules: {
     "/contact": { prerender: true },
