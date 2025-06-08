@@ -23,12 +23,23 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `@use "@/assets/style/_globals.scss" as *;`,
+          quietDeps: true,
         },
       },
     },
   },
   routeRules: {
     "/contact": { prerender: true },
+  },
+  future: {
+    // allow the schema to resolve compatibilityVersion
+    compatibilityVersion: 4,
+  },
+  experimental: {
+    viewTransition: true,
+  },
+  app: {
+    viewTransition: true,
   },
   googleFonts: {
     prefetch: true,

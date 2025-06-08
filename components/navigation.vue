@@ -64,22 +64,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { useRouter } from "vue-router";
 import SvgMenu from "~/assets/images/menu.svg?component";
 import SvgClose from "~/assets/images/close.svg?component";
 import animateElement from "~/utils/animateElement";
+
 const router = useRouter();
 const isHome = computed(() => router.currentRoute.value.path === "/");
 
 const isSticky = ref(false);
 const isMobileMenuOpen = ref(false);
 
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5,
+};
+
 onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  };
   const listItems = document.querySelectorAll(".Navigation-overlay li");
   animateElement(listItems);
   const observer = new IntersectionObserver((entries) => {
@@ -99,7 +102,7 @@ onMounted(() => {
   }
 
   const isMobile = window.matchMedia("(max-width: 640px)");
-  console.log(isMobile);
+
   // Unmount the sentinel observer when the component is unmounted.
   onBeforeUnmount(() => {
     if (sentinel) {

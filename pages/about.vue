@@ -55,7 +55,9 @@ import animateElement from "~/utils/animateElement";
 
 definePageMeta({
   layout: "footer",
+  viewTransition: true,
 });
+
 onMounted(() => {
   const subtitles = document.querySelectorAll(".Container article h2");
   const paragraphs = document.querySelectorAll(".Container article p");

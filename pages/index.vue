@@ -28,6 +28,7 @@ import { onMounted, onBeforeUnmount, ref } from "vue";
 
 definePageMeta({
   layout: "default",
+  viewTransition: true,
 });
 
 interface TypedInstance {

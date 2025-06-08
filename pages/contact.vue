@@ -88,8 +88,10 @@
 import animateElement from "~/utils/animateElement";
 import { required, email, minLength, helpers } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+
 definePageMeta({
   layout: "default",
+  viewTransition: true,
 });
 
 const successMessageRef = ref(false);

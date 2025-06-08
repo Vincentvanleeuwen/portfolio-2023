@@ -1,7 +1,7 @@
 <template>
   <a href="#maincontent" class="SkipLink">Skip to content</a>
   <Navigation />
-  <NuxtPage />
+  <NuxtPage class="test" />
 </template>
 
 <script setup lang="ts">

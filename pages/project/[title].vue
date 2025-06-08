@@ -79,16 +79,19 @@
 import SvgBack from "~/assets/images/arrow-back.svg?component";
 import { useProjectStore } from "~/stores/project";
 import animateElement from "~/utils/animateElement";
+
 definePageMeta({
   layout: "footer",
+  viewTransition: true,
 });
+
 const projectStore = useProjectStore();
 const route = useRoute();
 
 let title = Array.isArray(route.params.title)
   ? route.params.title[0]
   : route.params.title;
-const project = projectStore.getProject(title.toLowerCase());
+const project = projectStore.getProject(title?.toLowerCase());
 if (!project?.id) {
   throw createError({ statusCode: 404, statusMessage: "Project not found" });
 }
@@ -96,7 +99,7 @@ const projects = projectStore.getProjects;
 let nextProjectTitle = "";
 
 if (project?.id) {
-  const nextProject = projects.find((item) => item.id === project.id + 1);
+  const nextProject = projects.find((item: any) => item.id === project.id + 1);
   if (nextProject) {
     nextProjectTitle = nextProject.title;
   } else {

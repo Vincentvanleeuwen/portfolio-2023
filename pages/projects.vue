@@ -6,7 +6,7 @@
         v-for="project in projects"
         :key="project.id"
         class="Triangle"
-        @click="$router.push(`project/${project.title.toLowerCase()}`)"
+        @click="router.push(`project/${project.title.toLowerCase()}`)"
         :aria-label="`Open the ${project.title} project`"
         tabindex="0"
       >
@@ -25,12 +25,8 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: "default",
-  title: "Projects",
-});
 import animateElement from "~/utils/animateElement";
-
+import { useRouter } from "vue-router";
 import { useProjectStore } from "~/stores/project";
 import SvgRinus from "~/assets/images/rinus.svg?component";
 import SvgMomkai from "~/assets/images/Momkai.svg?component";
@@ -39,6 +35,13 @@ import SvgDEN from "~/assets/images/DEN.svg?component";
 import SvgPraPla from "~/assets/images/PraPla.svg?component";
 import SvgCombinify from "~/assets/images/Combinify.svg?component";
 
+definePageMeta({
+  layout: "default",
+  title: "Projects",
+  viewTransition: true,
+});
+
+const router = useRouter();
 const projectStore = useProjectStore();
 const projects = projectStore.projects;
 
