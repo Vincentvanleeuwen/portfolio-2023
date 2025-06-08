@@ -59,7 +59,7 @@ onMounted(() => {
 
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  // position camera so the sphere fits fully
+  // Position camera so the sphere fits fully
   const halfFov = THREE.MathUtils.degToRad(camera.fov / 2);
   camera.position.z = (R / Math.tan(halfFov)) * 1.3;
 
@@ -80,16 +80,16 @@ onMounted(() => {
       yPos = 0,
       zPos = 0;
 
-    const phi = Math.acos(-1 + (2 * i) / props.techs.length);
+    const phi = Math.acos(-1 + (2 * i) / N);
     const theta = (2 * Math.PI * i) / N;
 
     if (isMobile.value) {
-      // vertical belt: X=0, ring in Y–Z
+      // vertical belt
       yPos = R * Math.sin(theta);
       zPos = R * Math.cos(theta);
     } else {
       // full 3D sphere with phyllotaxis
-      const th = Math.PI * (3 - Math.sqrt(5)) * i; // golden angle
+      const th = Math.PI * (3 - Math.sqrt(5)) * i;
       xPos = R * Math.cos(th) * Math.sin(phi);
       yPos = R * Math.cos(phi);
       zPos = R * Math.sin(th) * Math.sin(phi);
@@ -140,7 +140,7 @@ onMounted(() => {
     raycaster.setFromCamera(mouse, camera);
     const hit = raycaster.intersectObjects(group.children)[0];
     if (hit) {
-      hovered.value = (hit.object as THREE.Sprite).userData;
+      hovered.value = hit.object.userData;
       x.value = e.clientX + 10;
       y.value = e.clientY + 10;
     } else {
@@ -150,14 +150,11 @@ onMounted(() => {
   renderer.domElement.addEventListener("pointermove", onPointerMove);
 
   const canvas = renderer.domElement as HTMLElement;
-  // always show "grab" when not over an icon
   canvas.style.cursor = "grab";
 
-  // when pointer is down on the canvas
   canvas.addEventListener("pointerdown", () => {
     canvas.style.cursor = "grabbing";
   });
-  // restore when released
   canvas.addEventListener("pointerup", () => {
     canvas.style.cursor = "grab";
   });
@@ -166,7 +163,6 @@ onMounted(() => {
   const handleResize = () => {
     width = container.value!.clientWidth;
     height = container.value!.clientHeight;
-    // update renderer & camera
     renderer.setSize(width, height);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -186,10 +182,10 @@ onMounted(() => {
 <style scoped lang="scss">
 .tech-sphere {
   width: 100%;
-  height: 400px;
+  height: 600px;
   position: relative;
   cursor: grab;
-  /* when the pointer is down */
+
   &:active {
     cursor: grabbing;
   }
