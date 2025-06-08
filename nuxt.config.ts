@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       baseURL: "https://vincreates.netlify.app",
     },
   },
+  nitro: {
+    preset: "static",
+  },
   modules: [
     [
       "@pinia/nuxt",
