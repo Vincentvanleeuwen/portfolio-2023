@@ -4,7 +4,13 @@ import svgLoader from "vite-svg-loader";
 export default defineNuxtConfig({
   ssr: true,
   image: {
-    provider: "static",
+    provider: "netlify",
+    netlify: {
+      baseURL: "https://vincreates.netlify.app",
+    },
+  },
+  nitro: {
+    preset: "netlify",
   },
   modules: [
     [
