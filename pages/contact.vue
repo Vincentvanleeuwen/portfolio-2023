@@ -12,6 +12,7 @@
     </p>
     <a
       href="https://github.com/Vincentvanleeuwen"
+      target="_blank"
       class="ProjectSidebar-social"
     >
       <img
@@ -23,6 +24,7 @@
     </a>
     <a
       href="https://www.linkedin.com/in/vincent-van-leeuwen-0b7338137/"
+      target="_blank"
       class="ProjectSidebar-social"
     >
       <img
@@ -39,8 +41,8 @@
       v-if="!successMessageRef"
     >
       <input type="hidden" name="form-name" value="contact" />
-      <label
-        >Name
+      <label>
+        Name
         <input
           type="text"
           name="name"
@@ -51,26 +53,29 @@
             Error: v$.email.$error,
             Valid: !v$.email.$invalid,
           }"
-      /></label>
+        />
+      </label>
 
-      <label
-        >Email address
+      <label>
+        Email address
         <input
           type="email"
           name="email"
           v-model="formData.email"
           placeholder="e.g. johndoe@gmail.com"
           @change="v$.email.$touch"
-      /></label>
+        />
+      </label>
 
-      <label
-        >Message
+      <label>
+        Message
         <textarea
           @change="v$.message.$touch"
           name="message"
           placeholder="Your message here.."
           v-model="formData.message"
-        ></textarea>
+        >
+        </textarea>
       </label>
       <Button
         :element="'button'"
