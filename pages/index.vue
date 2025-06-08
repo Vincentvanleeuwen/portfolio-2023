@@ -1,13 +1,13 @@
 <template>
   <div id="maincontent" class="HomeContainer">
     <div class="ImageContainer">
-      <nuxt-img
+      <img
         src="/images/self-portrait.webp"
         alt="Portrait"
         class="Portrait"
         sizes="xl:820px lg:500px"
       />
-      <nuxt-img
+      <img
         src="/images/self-portrait-mobile.webp"
         alt="Portrait"
         class="Portrait-mobile"

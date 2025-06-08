@@ -18,7 +18,7 @@
           target="_blank"
         ></Button>
       </div>
-      <nuxt-img
+      <img
         class="Project-headerImage"
         :src="project?.headerImage"
         :alt="project?.headerImageAlt"
@@ -31,7 +31,7 @@
     />
     <div class="Project-content">
       <p class="Project-paragraph">{{ project?.description }}</p>
-      <nuxt-img
+      <img
         class="Project-imageSpot"
         :src="project?.imageSpotOne"
         :alt="project?.imageSpotOneAlt"
@@ -43,7 +43,7 @@
       <p class="Project-paragraph">{{ project?.role }}</p>
       <h2 class="Project-subTitle">Challenges</h2>
       <p class="Project-paragraph">{{ project?.challenges }}</p>
-      <nuxt-img
+      <img
         class="Project-imageSpot"
         :src="project?.imageSpotTwo"
         :alt="project?.imageSpotTwoAlt"
