@@ -1,18 +1,25 @@
 <template>
-  <div ref="container" class="tech-sphere" />
+  <div
+    ref="container"
+    class="tech-sphere"
+    role="presentation"
+    aria-hidden="true"
+    tabindex="-1"
+  />
   <div
     v-if="hovered"
     class="tooltip"
     :style="{ top: y + 'px', left: x + 'px' }"
   >
-    <strong>{{ hovered.name }}</strong
-    ><br />
-    <small>{{ hovered.details }}</small>
+    <div class="tooltip-content">
+      <strong>{{ hovered.name }}</strong>
+      <p class="tooltip-description">{{ hovered.description }}</p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, onMounted, onBeforeUnmount, watch } from "vue";
+import { defineProps, ref, onMounted, onBeforeUnmount } from "vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
@@ -20,7 +27,7 @@ interface Tech {
   name: string;
   icon: string;
   link: string;
-  details?: string;
+  description: string;
 }
 
 const props = defineProps<{
@@ -140,14 +147,31 @@ onMounted(() => {
     raycaster.setFromCamera(mouse, camera);
     const hit = raycaster.intersectObjects(group.children)[0];
     if (hit) {
-      hovered.value = hit.object.userData;
+      canvas.style.cursor = "pointer";
+
+      hovered.value = hit.object.userData as Tech;
       x.value = e.clientX + 10;
       y.value = e.clientY + 10;
     } else {
+      canvas.style.cursor = "grab";
+
       hovered.value = null;
     }
   };
   renderer.domElement.addEventListener("pointermove", onPointerMove);
+
+  const onClick = (e: MouseEvent) => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const hit = raycaster.intersectObjects(scene.children[0].children)[0];
+    if (hit) {
+      const tech = hit.object.userData as Tech;
+      window.open(tech.link, "_blank", "noopener");
+    }
+  };
+  renderer.domElement.addEventListener("click", onClick);
 
   const canvas = renderer.domElement as HTMLElement;
   canvas.style.cursor = "grab";
@@ -181,23 +205,67 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .tech-sphere {
-  width: 100%;
+  width: calc(100% + 3rem);
+  left: -1.5rem;
   height: 600px;
   position: relative;
   cursor: grab;
+
+  @include breakpoint(medium) {
+    width: 100%;
+  }
 
   &:active {
     cursor: grabbing;
   }
 }
+
 .tooltip {
   position: fixed;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 0.5rem;
-  border-radius: 4px;
   pointer-events: none;
-  font-size: 0.85rem;
   z-index: 10;
+
+  .tooltip-content {
+    background: rgba(255, 255, 255, 0.95); // light, semi-transparent
+    color: #333; // dark text for contrast
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    max-width: 220px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    position: relative;
+    transition: transform 0.1s ease-out;
+  }
+
+  // little arrow at the top
+  .tooltip-content::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+  }
+
+  .tooltip-description {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+
+  .tooltip-link {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: #1e90ff; // your accent (bright blue)
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>

@@ -4,25 +4,29 @@
       "name": "HTML5",
       "link": "https://developer.mozilla.org/en-US/docs/Glossary/HTML5",
       "icon": "/images/skills/html.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A markup language used to structure and present content on the web."
     },
     {
       "name": "CSS3",
-      "link": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "link": "https://developer.mozilla.org/en/Web/CSS",
       "icon": "/images/skills/css.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A style sheet language for describing the look and formatting of HTML documents."
     },
     {
       "name": "JavaScript",
       "link": "https://developer.mozilla.org/en/JavaScript",
       "icon": "/images/skills/javascript.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A high-level programming language that enables interactive web pages and dynamic content."
     },
     {
       "name": "TypeScript",
       "link": "https://www.typescriptlang.org/",
       "icon": "/images/skills/typescript.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A typed superset of JavaScript that adds static types and modern features, compiling down to plain JS."
     }
   ],
   "frontend": [
@@ -30,55 +34,64 @@
       "name": "React",
       "link": "https://react.dev/",
       "icon": "/images/skills/react.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A JavaScript library for building component-based user interfaces with declarative views."
     },
     {
       "name": "Vue",
       "link": "https://vuejs.org/",
       "icon": "/images/skills/vue.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A progressive framework for building user interfaces and single-page applications."
     },
     {
       "name": "Angular",
       "link": "https://angular.io/",
       "icon": "/images/skills/angular.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A TypeScript-based framework for building structured, scalable single-page applications."
     },
     {
       "name": "Sass",
       "link": "https://sass-lang.com/",
       "icon": "/images/skills/sass.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A CSS preprocessor that adds variables, nesting, and functions for more maintainable styles."
     },
     {
       "name": "Next",
       "link": "https://nextjs.org/",
       "icon": "/images/skills/next.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A React framework offering server-side rendering, static site generation, and API routes out of the box."
     },
     {
       "name": "Nuxt",
       "link": "https://nuxt.com/",
       "icon": "/images/skills/nuxt.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A framework built on Vue.js for universal apps, supporting SSR and static site generation."
     },
     {
       "name": "GraphQL",
       "link": "https://graphql.org/",
       "icon": "/images/skills/graphql.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A query language for APIs that lets clients request exactly the data they need."
     },
     {
       "name": "SocketIO",
       "link": "https://socket.io/",
       "icon": "/images/skills/socketio.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A library for real-time, bi-directional communication between clients and servers."
     },
     {
       "name": "Webflow",
       "link": "https://webflow.com/",
       "icon": "/images/skills/webflow.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A visual web design and CMS platform that lets you build responsive sites without code."
     }
   ],
   "backend": [
@@ -86,31 +99,36 @@
       "name": "Firebase",
       "link": "https://firebase.google.com/",
       "icon": "/images/skills/firebase.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A Backend-as-a-Service providing real-time databases, authentication, hosting, and more."
     },
     {
       "name": "MongoDB",
       "link": "https://www.mongodb.com/",
       "icon": "/images/skills/mongo.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A NoSQL document database designed for scalability, flexibility, and ease of development."
     },
     {
       "name": "CraftCMS",
       "link": "https://craftcms.com/",
       "icon": "/images/skills/craft.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A content management system focused on customizability and developer-friendly templating."
     },
     {
       "name": "Wordpress",
       "link": "https://wordpress.com/",
       "icon": "/images/skills/wordpress.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A PHP-based CMS powering websites and blogs with a rich plugin ecosystem and themes."
     },
     {
       "name": "Node",
       "link": "https://nodejs.org/en",
       "icon": "/images/skills/node.svg",
-      "hoverActive": false
+      "hoverActive": false,
+      "description": "A JavaScript runtime built on Chrome’s V8 engine for building scalable server-side applications."
     }
   ]
 }

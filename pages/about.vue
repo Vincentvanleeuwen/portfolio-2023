@@ -68,7 +68,11 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .Container {
-  padding: 0 3rem 8rem;
+  padding: 0 1.5rem 8rem;
+
+  @include breakpoint(medium) {
+    padding: 0 3rem 8rem;
+  }
 }
 article {
   position: relative;

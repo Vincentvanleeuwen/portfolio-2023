@@ -4,6 +4,15 @@
     <client-only>
       <TechSphere :techs="flatSkills" />
     </client-only>
+
+    <!-- Screen‐reader & keyboard only fallback -->
+    <ul class="sr-only tech-list">
+      <li v-for="tech in flatSkills" :key="tech.name">
+        <a :href="tech.link" target="_blank" rel="noopener">
+          {{ tech.name }}: {{ tech.description }}
+        </a>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -15,6 +24,7 @@ type Skill = {
   name: string;
   icon: string;
   link: string;
+  description: string;
   hoverActive?: boolean;
 };
 
@@ -28,8 +38,7 @@ const flatSkills = computed(() =>
       name: item.name,
       icon: item.icon,
       link: item.link,
-      // you could include category or link in details:
-      details: `${item.name} (${category})`,
+      description: item.description,
     }))
   )
 );
@@ -43,5 +52,18 @@ const flatSkills = computed(() =>
   h2 {
     margin-bottom: 2rem;
   }
+}
+
+/* visually hide but keep in accessibility tree */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* prevent line-breaks */
+  border: 0;
 }
 </style>

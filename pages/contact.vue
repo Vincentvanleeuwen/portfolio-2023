@@ -105,6 +105,7 @@ const formData = reactive({
   email: "",
   message: "",
 });
+
 const rules = computed(() => {
   return {
     email: {
@@ -124,6 +125,7 @@ const rules = computed(() => {
   };
 });
 const v$ = useVuelidate(rules, formData);
+
 onMounted(() => {
   const paragraphs = document.querySelectorAll(".Container > p");
   const anchors = document.querySelectorAll(".Container > a");
@@ -170,9 +172,14 @@ onMounted(() => {
   display: none;
 }
 .Container {
-  padding: 0 3rem 8rem;
+  padding: 0 1.5rem 8rem;
   max-width: 680px;
   margin: 0 auto 1rem;
+  padding: 0 1.5rem 8rem;
+
+  @include breakpoint(medium) {
+    padding: 0 3rem 8rem;
+  }
 }
 .Success {
   display: flex;
@@ -223,7 +230,7 @@ p {
   }
 
   &:last-of-type {
-    margin: 0 auto 1rem;
+    margin: 1rem 0 0;
   }
 }
 form {
