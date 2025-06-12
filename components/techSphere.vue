@@ -161,6 +161,9 @@ onMounted(() => {
   renderer.domElement.addEventListener("pointermove", onPointerMove);
 
   const onClick = (e: MouseEvent) => {
+    if (isMobile.value) {
+      return;
+    }
     const rect = renderer.domElement.getBoundingClientRect();
     mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
